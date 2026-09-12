@@ -1,0 +1,50 @@
+name: Marmara Duyuru Takip Botu
+
+on:
+  schedule:
+    # Türkiye UTC+3 kullanıyor ve DST uygulamıyor, bu yüzden 09:00 TR = 06:00 UTC
+    # her zaman geçerli (mevsimsel kaymaya gerek yok).
+    - cron: "0 6 * * *"
+  workflow_dispatch: {} # Gerektiğinde elle tetiklemek için
+
+# GITHUB_TOKEN'ın duyurular.json değişikliğini repoya push edebilmesi için.
+permissions:
+  contents: write
+
+concurrency:
+  group: marmara-duyuru-botu
+  cancel-in-progress: false
+
+jobs:
+  check-and-notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repoyu çek
+        uses: actions/checkout@v4
+
+      - name: Python'u kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Bağımlılıkları kur
+        run: pip install -r requirements.txt
+
+      - name: Duyuruları kontrol et ve WhatsApp bildirimi gönder
+        env:
+          WA_TOKEN: ${{ secrets.WA_TOKEN }}
+          WA_PHONE_NUMBER_ID: ${{ secrets.WA_PHONE_NUMBER_ID }}
+          TARGET_PHONE_NUMBER: ${{ secrets.TARGET_PHONE_NUMBER }}
+        run: python main.py
+
+      - name: duyurular.json değişikliğini repoya commit'le
+        run: |
+          git config user.name "marmara-duyuru-bot"
+          git config user.email "actions@github.com"
+          git add duyurular.json
+          if git diff --cached --quiet; then
+            echo "duyurular.json değişmedi, commit atılmıyor."
+          else
+            git commit -m "chore: duyurular.json güncellendi [skip ci]"
+            git push
+          fi
