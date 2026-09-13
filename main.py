@@ -66,6 +66,13 @@ WA_TOKEN = os.environ.get("WA_TOKEN")
 WA_PHONE_NUMBER_ID = os.environ.get("WA_PHONE_NUMBER_ID")
 TARGET_PHONE_NUMBER = os.environ.get("TARGET_PHONE_NUMBER")
 
+# Meta WhatsApp Manager'da onaylatılmış şablonun adı/dili. Şablonun body'si:
+# "Marmara Üniversitesi duyuru takip botu yeni bir duyuru tespit etti. ...
+#  Duyurunun yayınlandığı birim: {{1}}. Duyurunun başlığı şöyledir: {{2}}.
+#  ... bağlantı: {{3}}. Bu mesaj otomatik olarak gönderilmiştir."
+WA_TEMPLATE_NAME = os.environ.get("WA_TEMPLATE_NAME", "yeni_duyuru")
+WA_TEMPLATE_LANGUAGE = os.environ.get("WA_TEMPLATE_LANGUAGE", "tr")
+
 # Yerel testte (`SKIP_RANDOM_DELAY=1 python main.py`) rastgele beklemeyi atlamak için.
 SKIP_RANDOM_DELAY = os.environ.get("SKIP_RANDOM_DELAY") == "1"
 
@@ -261,8 +268,16 @@ def save_known(data):
         logger.error("duyurular.json yazılamadı: %s", exc)
 
 
-def send_whatsapp_message(text):
-    """Meta WhatsApp Cloud API ile TARGET_PHONE_NUMBER'a metin mesajı gönderir."""
+def send_whatsapp_notification(site_name, title, link):
+    """Meta WhatsApp Cloud API üzerinden onaylı 'yeni_duyuru' şablonuyla bildirim gönderir.
+
+    Serbest metin (type=text) yerine ONAYLI BİR ŞABLON kullanıyoruz çünkü bu bot
+    işletme tarafından başlatılan (business-initiated) otomatik bir bildirim
+    gönderiyor: alıcı son 24 saat içinde bu numarayı mesajlamadıysa, WhatsApp
+    serbest metin mesajlarını API 200 dönse bile SESSİZCE teslim etmiyor.
+    Onaylı şablonlar bu 24 saatlik "müşteri penceresi" kısıtlamasına tabi değil,
+    bu yüzden günlük otomatik çalışan bir bot için doğru yöntem bu.
+    """
     if not (WA_TOKEN and WA_PHONE_NUMBER_ID and TARGET_PHONE_NUMBER):
         logger.error(
             "WhatsApp ortam değişkenleri eksik (WA_TOKEN / WA_PHONE_NUMBER_ID / "
@@ -278,14 +293,27 @@ def send_whatsapp_message(text):
     payload = {
         "messaging_product": "whatsapp",
         "to": TARGET_PHONE_NUMBER,
-        "type": "text",
-        "text": {"body": text, "preview_url": True},
+        "type": "template",
+        "template": {
+            "name": WA_TEMPLATE_NAME,
+            "language": {"code": WA_TEMPLATE_LANGUAGE},
+            "components": [
+                {
+                    "type": "body",
+                    "parameters": [
+                        {"type": "text", "text": site_name},
+                        {"type": "text", "text": title},
+                        {"type": "text", "text": link},
+                    ],
+                }
+            ],
+        },
     }
 
     try:
         response = requests.post(url, headers=headers, json=payload, timeout=30)
         response.raise_for_status()
-        logger.info("WhatsApp mesajı gönderildi.")
+        logger.info("WhatsApp şablon mesajı gönderildi.")
         return True
     except requests.RequestException as exc:
         detail = ""
@@ -344,9 +372,8 @@ def main():
         logger.info("Toplam %d yeni duyuru WhatsApp ile gönderilecek.", len(new_items))
         sent = 0
         for site, notice in new_items:
-            message = f"🚨 *Yeni Duyuru [{site['name']}]:* {notice['baslik']}\n🔗 {notice['link']}"
             try:
-                if send_whatsapp_message(message):
+                if send_whatsapp_notification(site["name"], notice["baslik"], notice["link"]):
                     sent += 1
             except Exception as exc:  # Beklenmeyen bir hata tüm çalıştırmayı düşürmesin.
                 logger.error("[%s] duyuru gönderilirken beklenmeyen hata: %s", site["host"], exc)
