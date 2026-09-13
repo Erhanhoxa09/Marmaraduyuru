@@ -1,24 +1,63 @@
 # Marmara Üniversitesi Duyuru Takip ve WhatsApp Bildirim Botu
 
-Her gün Türkiye saatiyle 09:00-09:20 arasında `https://www.marmara.edu.tr/allnotices`
-sayfasını kontrol eder, önceden görülmemiş duyuruları WhatsApp üzerinden bildirir.
-Tamamen GitHub Actions üzerinde, sunucusuz çalışır.
+Her gün Türkiye saatiyle 09:00-09:20 arasında, `sites.json`'da listelenen **97
+Marmara Üniversitesi sitesinin** (tüm fakülteler, enstitüler, MYO'lar, daire
+başkanlıkları, koordinatörlükler — bkz. `site_scan_report.md`) duyuru
+sayfalarını eşzamanlı kontrol eder, önceden görülmemiş duyuruları WhatsApp
+üzerinden bildirir. Tamamen GitHub Actions üzerinde, sunucusuz çalışır.
+
+**Şablon/çoğaltılabilir tasarım:** Bu repo tek bir kişiye özel değil — Marmara'da
+herkes bu repoyu fork'layıp sadece kendi WhatsApp numarasını ve (isterse)
+`sites.json`'daki hangi sitelerin aktif olduğunu ayarlayarak kendi botunu
+çalıştırabilir. `main.py`'de kod değişikliği gerekmez.
 
 ## Dosyalar
 
 | Dosya | Görev |
 |---|---|
-| `main.py` | Scraping, karşılaştırma, WhatsApp gönderimi |
+| `main.py` | `sites.json`'daki tüm aktif siteleri eşzamanlı kazır, karşılaştırır, WhatsApp gönderir |
+| `sites.json` | **Asıl konfigürasyon dosyası** — hangi Marmara sitelerinin izleneceği (bkz. aşağıda) |
 | `requirements.txt` | Python bağımlılıkları |
-| `duyurular.json` | Daha önce görülmüş/gönderilmiş duyuruların kaydı (bot tarafından otomatik oluşturulur/güncellenir) |
+| `duyurular.json` | Site başına daha önce görülmüş duyuruların kaydı (bot tarafından otomatik oluşturulur/güncellenir) |
 | `.github/workflows/main.yml` | Günlük zamanlama, çalıştırma ve `duyurular.json`'u repoya commit'leme |
+| `site_list.txt`, `site_scan_report.md`, `matched_sites.json` | `sites.json`'ın nasıl üretildiğine dair keşif/tarama çıktıları (referans, bot bunları kullanmaz) |
 
-**Not:** İlk çalıştırmada `duyurular.json` yoktur; bot o an sayfada gördüğü tüm
-duyuruları sadece referans olarak kaydeder, WhatsApp bildirimi göndermez. Böylece
-kurulum anında sitede zaten var olan duyurular için toplu bildirim yağmuruna
-maruz kalmazsınız — bot bundan sonra çıkan **gerçekten yeni** duyuruları bildirir.
+**Not:** Bir site `duyurular.json`'da ilk kez görülüyorsa (yeni kurulum ya da
+`sites.json`'a yeni eklenmiş bir site), o sitenin mevcut duyuruları "yeni" sayıp
+toplu bildirim göndermek yerine sadece referans olarak kaydedilir. Böylece ne
+ilk kurulumda ne de sonradan bir site eklediğinizde toplu bildirim yağmuruna
+maruz kalmazsınız — bot yalnızca gerçekten yeni çıkan duyuruları bildirir.
+
+## `sites.json` — hangi siteleri izleyeceğinizi ayarlamak
+
+Her kayıt şu şekildedir:
+
+```json
+{
+  "name": "Hukuk Fakültesi",
+  "host": "hukuk.marmara.edu.tr",
+  "notices_url": "https://hukuk.marmara.edu.tr/allnotices",
+  "enabled": true
+}
+```
+
+- **Bir siteyi kapatmak** için `"enabled": false` yapın (kaydı silmenize gerek yok).
+- **Sadece kendi ilgi alanınızdaki sitelerle** çalışmak istiyorsanız, ilginizi
+  çekmeyen kayıtları `false` yapıp sadece istediklerinizi `true` bırakın.
+- **Yeni bir Marmara sitesi eklemek** için (aynı temayı kullanıyorsa —
+  `https://<alt-alan-adı>/allnotices` adresini tarayıcıda açıp "Aktif Duyurular"
+  görüyorsanız kullanır) aynı formatta yeni bir kayıt ekleyin, main.py'ye
+  dokunmanıza gerek yok.
+- 97 kayıt varsayılan olarak `enabled: true` gelir — yani kurulumdan sonra ek
+  bir işlem yapmazsanız bot doğrudan tüm bu siteleri izlemeye başlar.
 
 ## Kurulum
+
+> **Başka bir Marmara öğrencisi/personeli misiniz?** Bu repoyu GitHub'da fork'layın,
+> sadece adım 2-3'teki WhatsApp bilgilerini kendi hesabınızdan alıp kendi
+> fork'unuzun Secrets'ına ekleyin. `sites.json` zaten 97 siteyle geliyor,
+> istediğiniz gibi daraltabilirsiniz (yukarıdaki bölüme bakın). Kod değişikliği
+> gerekmez.
 
 ### 1) Repoyu oluşturun ve pushlayın
 
