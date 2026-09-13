@@ -2,15 +2,18 @@
 """Marmara Üniversitesi duyuru takip ve WhatsApp bildirim botu.
 
 Akış:
-1) `sites.json`'daki (aktif) her sitenin duyuru sayfasını eşzamanlı çeker.
-2) `duyurular.json`'daki (site başına ayrı) daha önce görülmüş duyurularla karşılaştırır.
-3) Her site için gerçekten yeni olan duyuruları WhatsApp Cloud API ile gönderir.
-4) `duyurular.json`'u güncel duyurularla günceller.
+1) `sites.json` (site kataloğu) + `secilecek_siteler.txt` (kullanıcının hangi
+   siteleri izlemek istediği) birleştirilip izlenecek site listesi çıkarılır.
+2) Bu sitelerin duyuru sayfaları eşzamanlı çekilir.
+3) `duyurular.json`'daki (site başına ayrı) daha önce görülmüş duyurularla karşılaştırılır.
+4) Her site için gerçekten yeni olan duyurular WhatsApp Cloud API ile gönderilir.
+5) `duyurular.json` güncel duyurularla güncellenir.
 
-Yeni bir Marmara sitesi eklemek için tek yapman gereken `sites.json`'a bir
-kayıt eklemek (host + notices_url) — main.py'de kod değişikliği gerekmez.
-Kendi kopyanı çalıştırmak istiyorsan sadece GitHub Secrets'taki WhatsApp
-bilgilerini ve istersen `sites.json`'daki `enabled` alanlarını ayarlaman yeterli.
+Yeni bir Marmara sitesi eklemek için `sites.json`'a bir kayıt eklemek yeterli
+(host + notices_url) — main.py'de kod değişikliği gerekmez. Hangi sitelerin
+izleneceğini seçmek için `secilecek_siteler.txt`'yi düzenle (bkz. o dosyanın
+içindeki açıklama): "HEPSI" satırı tüm siteleri açar, ya da tek tek sitelerin
+başındaki # işaretini kaldırıp sadece istediklerini seçebilirsin.
 
 Git commit/push işlemi bilerek burada değil, GitHub Actions workflow'unda
 yapılıyor (bkz. .github/workflows/main.yml) — script'in tek sorumluluğu
@@ -22,6 +25,7 @@ import json
 import logging
 import os
 import random
+import re
 import sys
 import time
 from urllib.parse import urljoin
@@ -31,7 +35,17 @@ from bs4 import BeautifulSoup
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 SITES_FILE = os.path.join(PROJECT_DIR, "sites.json")
+SELECTION_FILE = os.path.join(PROJECT_DIR, "secilecek_siteler.txt")
 DATA_FILE = os.path.join(PROJECT_DIR, "duyurular.json")
+
+# secilecek_siteler.txt'de yorumsuz (başında # olmayan) bir satırda bu
+# kelimelerden biri geçerse, dosyadaki tek tek site seçimi yok sayılır ve
+# sites.json'daki TÜM siteler izlenir.
+ALL_SITES_KEYWORDS = {"HEPSI", "HEPSİ", "ALL", "TÜMÜ", "TUMU"}
+
+# Site isimlerinde/hostlarında da geçebilecek genel bir domain deseni; seçim
+# dosyasındaki her aktif satırdan host'u bu şekilde çıkarıyoruz.
+HOST_PATTERN = r"([a-z0-9\-]+(?:\.[a-z0-9\-]+)*\.marmara\.edu\.tr)"
 
 # GitHub Actions cron'u zaten 09:00 TR civarında tetikliyor; script ek olarak
 # 0-1200 saniye (0-20 dk) rastgele bekleyerek her gün farklı bir saatte
@@ -80,18 +94,89 @@ def random_delay():
     time.sleep(delay)
 
 
-def load_sites():
-    """sites.json'dan aktif (enabled) siteleri yükler."""
+def load_site_catalog():
+    """sites.json'daki TÜM siteleri (isim, host, url) yükler."""
     try:
         with open(SITES_FILE, "r", encoding="utf-8") as f:
-            all_sites = json.load(f)
+            return json.load(f)
     except (OSError, json.JSONDecodeError) as exc:
         logger.error("sites.json okunamadı: %s", exc)
         return []
 
-    enabled = [s for s in all_sites if s.get("enabled", True)]
-    logger.info("sites.json: %d/%d site aktif.", len(enabled), len(all_sites))
-    return enabled
+
+def load_selection():
+    """secilecek_siteler.txt'yi okuyup hangi hostların izleneceğini belirler.
+
+    Dönüş: ("all", None) -> tüm siteler; ("subset", {host, ...}) -> sadece
+    bu hostlar. Dosya yoksa veya boşsa, güvenli varsayılan olarak "all" döner
+    (sites.json'daki her şey izlenir).
+    """
+    if not os.path.exists(SELECTION_FILE):
+        logger.info("secilecek_siteler.txt bulunamadı, varsayılan olarak tüm siteler izlenecek.")
+        return "all", None
+
+    try:
+        with open(SELECTION_FILE, "r", encoding="utf-8") as f:
+            raw_lines = f.readlines()
+    except OSError as exc:
+        logger.error("secilecek_siteler.txt okunamadı, tüm siteler izlenecek: %s", exc)
+        return "all", None
+
+    active_lines = [
+        line.strip() for line in raw_lines
+        if line.strip() and not line.strip().startswith("#")
+    ]
+
+    for line in active_lines:
+        if line.upper() in ALL_SITES_KEYWORDS:
+            return "all", None
+
+    selected_hosts = set()
+    for line in active_lines:
+        match = re.search(HOST_PATTERN, line, re.IGNORECASE)
+        if match:
+            selected_hosts.add(match.group(1).lower())
+        else:
+            logger.warning(
+                "secilecek_siteler.txt: '%s' satırından bir marmara.edu.tr "
+                "host'u çıkarılamadı, atlanıyor.", line,
+            )
+
+    if not selected_hosts:
+        logger.warning(
+            "secilecek_siteler.txt'de aktif hiçbir site/HEPSI bulunamadı; "
+            "bu çalıştırmada hiçbir site izlenmeyecek."
+        )
+
+    return "subset", selected_hosts
+
+
+def load_sites():
+    """sites.json (katalog) + secilecek_siteler.txt (seçim) birleştirilerek izlenecek siteler döner."""
+    catalog = load_site_catalog()
+    if not catalog:
+        return []
+
+    mode, selected_hosts = load_selection()
+
+    if mode == "all":
+        logger.info("Seçim: HEPSI. %d site izlenecek.", len(catalog))
+        return catalog
+
+    sites = [s for s in catalog if s["host"] in selected_hosts]
+    logger.info(
+        "Seçim: özel liste. %d/%d site izlenecek.", len(sites), len(catalog)
+    )
+
+    matched_hosts = {s["host"] for s in sites}
+    unknown = selected_hosts - matched_hosts
+    if unknown:
+        logger.warning(
+            "secilecek_siteler.txt'deki şu hostlar sites.json'da bulunamadı: %s",
+            ", ".join(sorted(unknown)),
+        )
+
+    return sites
 
 
 def fetch_site_notices(site):

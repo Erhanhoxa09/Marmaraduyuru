@@ -1,0 +1,120 @@
+# ============================================================
+# Marmara Duyuru Botu - İzlenecek Siteler
+# ============================================================
+#
+# İKİ SEÇENEK VAR:
+#
+#  1) HEPSİNİ izle (varsayılan durum budur):
+#     Aşağıdaki HEPSI satırını hiç dokunmadan bırak.
+#
+#  2) SADECE seçtiklerini izle:
+#     a) Aşağıdaki HEPSI satırının başına # koyup pasif hale getir.
+#     b) Alttaki listede istediğin sitelerin başındaki # işaretini
+#        sil (o satırı aktif eder). # ile başlayan satırlar pasiftir
+#        ve bot tarafından yok sayılır.
+#
+# Not: HEPSI aktifken alttaki liste tamamen yok sayılır (referans amaçlıdır).
+# Yeni bir site eklemek istersen önce sites.json'a ekle, sonra burada
+# adını yorum satırından çıkarıp aktif et.
+# ============================================================
+
+HEPSI
+
+# --- Aşağıdaki 97 site referans listesidir (isim -> host) ---
+# Adalet Meslek Yüksekokulu -> adalet.marmara.edu.tr
+# Aday Öğrenci Portalı -> aday.marmara.edu.tr
+# Akademik Gelişim Birim Koordinatörlüğü -> akademikgelisim.marmara.edu.tr
+# Atatürk Eğitim Fakültesi -> aef.marmara.edu.tr
+# Avrupa Araştırmaları Enstitüsü -> avrupa.marmara.edu.tr
+# Bankacılık ve Sigortacılık Enstitüsü -> bse.marmara.edu.tr
+# Bilgi İşlem Daire Başkanlığı -> bidb.marmara.edu.tr
+# Bilimsel Araştırma Projeleri Birimi Koordinatörü -> bapko.marmara.edu.tr
+# Burs Ofisi Koordinatörlüğü -> bursofisi.marmara.edu.tr
+# Bölgesel Kalkınma ve Uygulama Araştırma Merkezi -> mabkam.marmara.edu.tr
+# Cumhuriyet Müzesi -> cumhuriyetmuzesi.marmara.edu.tr
+# Deney Hayvanları (DEHAMER) -> dehamer.marmara.edu.tr
+# Dijital Beşeri Bilimler Uygulama ve Araştırma Merkezi -> dbb.marmara.edu.tr
+# Dijital Dönüşüm ve Veri Yönetim Koordinatörlüğü -> muvem.marmara.edu.tr
+# Diş Hekimliği Fakültesi -> dhf.marmara.edu.tr
+# Doğa Bitkileri ve Su Ürünleri -> dobisu.marmara.edu.tr
+# Eczacılık Fakültesi -> eczacilik.marmara.edu.tr
+# Engelli Öğrenci Birim Koordinatörlüğü -> eob.marmara.edu.tr
+# Epilepsi Araştırma ve Uygulama Merkezi -> euam.marmara.edu.tr
+# Eğitim Bilimleri Enstitüsü -> ebe.marmara.edu.tr
+# Farabi Koordinatörlüğü -> farabi.marmara.edu.tr
+# Fen Bilimleri Enstitüsü -> fbe.marmara.edu.tr
+# Fen Fakültesi -> fen.marmara.edu.tr
+# Fen-Edebiyat Fakültesi -> fef.marmara.edu.tr
+# Finansal Bilimler Fakültesi -> fbf.marmara.edu.tr
+# Gastroenteroloji Enstitüsü -> gastro.marmara.edu.tr
+# Gönüllülük Faaliyetleri Birim Koordinatörlüğü -> gonullu.marmara.edu.tr
+# Güzel Sanatlar Enstitüsü -> gse.marmara.edu.tr
+# Güzel Sanatlar Fakültesi -> gsf.marmara.edu.tr
+# Hipertansiyon ve Ateroskleroz Eğitim -> hipam.marmara.edu.tr
+# Hukuk Fakültesi -> hukuk.marmara.edu.tr
+# Hukuk Müşavirliği -> hukukmusavirligi.marmara.edu.tr
+# KVKK İhlal Bildirim Formu -> bilgiguvenligi.marmara.edu.tr
+# Kadın Çalışmaları Uygulama ve Araştırma Merkezi -> eskar.marmara.edu.tr
+# Kalite Koordinatörlüğü -> kalite.marmara.edu.tr
+# Kampüs Kart Koordinatörlüğü -> kampuskart.marmara.edu.tr
+# Kariyer Merkezi Koordinatörlüğü -> kariyermerkezi.marmara.edu.tr
+# Kent Sorunları ve Yerel Yönetimler -> keyem.marmara.edu.tr
+# Kitaplar -> mupress.marmara.edu.tr
+# Koruma ve Güvenlik Müdürlüğü -> korumaguvenlik.marmara.edu.tr
+# Kudüs Çalışmaları Uygulama ve Araştırma Merkezi -> mukam.marmara.edu.tr
+# Kurumsal Logo -> kurumsaliletisim.marmara.edu.tr
+# Kütüphane ve Dokümantasyon D.B. -> kutuphane.marmara.edu.tr
+# Kıraat İlmi Eğitimi Uygulama ve Araştırma Merkezi (MAKAM) -> makam.marmara.edu.tr
+# Marmara Üniversitesi (Ana Sayfa) -> www.marmara.edu.tr
+# Mehmet Genç İktisat Tarihi Çalışmaları Uygulama ve Araştırma Merkezi -> mehmetgencitam.marmara.edu.tr
+# Mezunlar Ofisi Koordinatörlüğü -> mezun.marmara.edu.tr
+# Mimarlık ve Tasarım Fakültesi -> mtf.marmara.edu.tr
+# Mühendislik Fakültesi -> eng.marmara.edu.tr
+# Nanoteknoloji ve Biyomalzemeler -> nbuam.marmara.edu.tr
+# Nüfus ve Sosyal Araştırmalar Enstitüsü -> nsa.marmara.edu.tr
+# Nüfus ve Sosyal Politikalar Uygulama ve Araştırma Merkezi -> nsp.marmara.edu.tr
+# Online Ders Platformu -> online.marmara.edu.tr
+# Orta Doğu ve İslam Ülkeleri Araştırmaları Enstitüsü -> oae.marmara.edu.tr
+# Personel Daire Başkanlığı -> pdb.marmara.edu.tr
+# Psikolojik Danışma ve Rehberlik Uygulama-Araştırma Merkezi (MARPAM) -> marpam.marmara.edu.tr
+# Rektörlük Döner Sermaye İşletmesi -> dsim.marmara.edu.tr
+# Sağlık Bilimleri Enstitüsü -> saglik.marmara.edu.tr
+# Sağlık Bilimleri Fakültesi -> sbf.marmara.edu.tr
+# Sağlık Hizmetleri Meslek Yüksekokulu -> shmyo.marmara.edu.tr
+# Sağlık Kültür ve Spor D.B. -> sks.marmara.edu.tr
+# Sivil Toplum Kuruluşları -> stkam.marmara.edu.tr
+# Siyasal Bilgiler Fakültesi -> siyasal.marmara.edu.tr
+# Sosyal Bilimler Enstitüsü -> sbe.marmara.edu.tr
+# Sosyal Bilimler Meslek Yüksekokulu -> sbmyo.marmara.edu.tr
+# Spor Bilimleri Fakültesi -> sporbilimleri.marmara.edu.tr
+# Spor Bilimleri ve Sporcu Sağlığı -> sbssuam.marmara.edu.tr
+# Strateji Geliştirme Daire Başkanlığı -> sgdb.marmara.edu.tr
+# Sürdürülebilirlik Ofisi -> sustainability.marmara.edu.tr
+# Teknik Bilimler Meslek Yüksekokulu -> tbmyo.marmara.edu.tr
+# Teknik Eğitim Fakültesi -> tef.marmara.edu.tr
+# Teknoloji Fakültesi -> teknoloji.marmara.edu.tr
+# Türkiyat Araştırmaları Enstitüsü -> turkiyat.marmara.edu.tr
+# Türkçe Öğretimi Uygulama ve Araştırma Merkezi (Marmara TÖMER) -> tomer.marmara.edu.tr
+# Tıp Fakültesi -> tip.marmara.edu.tr
+# Uluslararası Sürdürebilirlik Uygulama ve Araştırma Merkezi -> ics.marmara.edu.tr
+# Uluslararası İlişkiler (MURCIR) -> murcir.marmara.edu.tr
+# Uluslararası İlişkiler ve Akademik İşbirliği Ofisi -> uluslararasi.marmara.edu.tr
+# Uygulamalı Bilimler Fakültesi -> ubf.marmara.edu.tr
+# Uzaktan Eğitim Merkezi -> uzem.marmara.edu.tr
+# Yabancı Diller Yüksekokulu -> ydil.marmara.edu.tr
+# Yapı İşleri ve Teknik D.B. -> yapi.marmara.edu.tr
+# Yazı İşleri ve Arşiv Şube Müdürlüğü -> yiasm.marmara.edu.tr
+# Çocuk Koruma Araştırma ve Uygulama Merkezi -> macok.marmara.edu.tr
+# ÖYP Kurum Koordinatörlüğü -> oyp.marmara.edu.tr
+# Öğrenci Konseyi -> ogrencikonseyi.marmara.edu.tr
+# Öğrenci İşleri Daire Başkanlığı -> oidb.marmara.edu.tr
+# İdari ve Mali İşler D.B. -> imidb.marmara.edu.tr
+# İktisat Fakültesi -> ikf.marmara.edu.tr
+# İlahiyat Fakültesi -> ilahiyat.marmara.edu.tr
+# İletişim Fakültesi -> iletisim.marmara.edu.tr
+# İnovasyon ve Teknoloji Transfer Uygulama ve Araştırma Merkezi (MİTTO) -> mitto.marmara.edu.tr
+# İnsan ve Toplum Bilimleri Fakültesi -> itbf.marmara.edu.tr
+# İslam Ekonomisi ve Finansı Enstitüsü -> muisef.marmara.edu.tr
+# İç Denetim Başkanlığı -> icdenetim.marmara.edu.tr
+# İş Sağlığı ve Güvenliği Koordinasyon Birimi -> isg.marmara.edu.tr
+# İşletme Fakültesi -> isletme.marmara.edu.tr

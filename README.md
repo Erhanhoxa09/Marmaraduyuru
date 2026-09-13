@@ -7,57 +7,64 @@ sayfalarını eşzamanlı kontrol eder, önceden görülmemiş duyuruları Whats
 üzerinden bildirir. Tamamen GitHub Actions üzerinde, sunucusuz çalışır.
 
 **Şablon/çoğaltılabilir tasarım:** Bu repo tek bir kişiye özel değil — Marmara'da
-herkes bu repoyu fork'layıp sadece kendi WhatsApp numarasını ve (isterse)
-`sites.json`'daki hangi sitelerin aktif olduğunu ayarlayarak kendi botunu
-çalıştırabilir. `main.py`'de kod değişikliği gerekmez.
+herkes bu repoyu fork'layıp sadece kendi WhatsApp numarasını ve (isterse) hangi
+sitelerin izleneceğini ayarlayarak kendi botunu çalıştırabilir. `main.py`'de
+kod değişikliği gerekmez.
 
 ## Dosyalar
 
 | Dosya | Görev |
 |---|---|
-| `main.py` | `sites.json`'daki tüm aktif siteleri eşzamanlı kazır, karşılaştırır, WhatsApp gönderir |
-| `sites.json` | **Asıl konfigürasyon dosyası** — hangi Marmara sitelerinin izleneceği (bkz. aşağıda) |
+| `main.py` | Seçilen siteleri eşzamanlı kazır, karşılaştırır, WhatsApp gönderir |
+| `secilecek_siteler.txt` | **Asıl kontrol dosyası** — hangi sitelerin izleneceğini buradan, düz metin olarak ayarlarsınız (bkz. aşağıda) |
+| `sites.json` | Site kataloğu (isim, host, duyuru URL'si) — genelde dokunmanız gerekmez, sadece yeni bir site eklerken |
 | `requirements.txt` | Python bağımlılıkları |
 | `duyurular.json` | Site başına daha önce görülmüş duyuruların kaydı (bot tarafından otomatik oluşturulur/güncellenir) |
 | `.github/workflows/main.yml` | Günlük zamanlama, çalıştırma ve `duyurular.json`'u repoya commit'leme |
 | `site_list.txt`, `site_scan_report.md`, `matched_sites.json` | `sites.json`'ın nasıl üretildiğine dair keşif/tarama çıktıları (referans, bot bunları kullanmaz) |
 
 **Not:** Bir site `duyurular.json`'da ilk kez görülüyorsa (yeni kurulum ya da
-`sites.json`'a yeni eklenmiş bir site), o sitenin mevcut duyuruları "yeni" sayıp
+sonradan seçime eklenmiş bir site), o sitenin mevcut duyuruları "yeni" sayıp
 toplu bildirim göndermek yerine sadece referans olarak kaydedilir. Böylece ne
 ilk kurulumda ne de sonradan bir site eklediğinizde toplu bildirim yağmuruna
 maruz kalmazsınız — bot yalnızca gerçekten yeni çıkan duyuruları bildirir.
 
-## `sites.json` — hangi siteleri izleyeceğinizi ayarlamak
+## `secilecek_siteler.txt` — hangi siteleri izleyeceğinizi ayarlamak
 
-Her kayıt şu şekildedir:
+Programcı olmayan biri de kolayca düzenleyebilsin diye JSON değil, düz metin
+kullanıyoruz. Dosyanın mantığı:
 
-```json
-{
-  "name": "Hukuk Fakültesi",
-  "host": "hukuk.marmara.edu.tr",
-  "notices_url": "https://hukuk.marmara.edu.tr/allnotices",
-  "enabled": true
-}
+```
+HEPSI
+
+# --- Aşağıdaki 97 site referans listesidir (isim -> host) ---
+# Adalet Meslek Yüksekokulu -> adalet.marmara.edu.tr
+# Hukuk Fakültesi -> hukuk.marmara.edu.tr
+# Tıp Fakültesi -> tip.marmara.edu.tr
+...
 ```
 
-- **Bir siteyi kapatmak** için `"enabled": false` yapın (kaydı silmenize gerek yok).
-- **Sadece kendi ilgi alanınızdaki sitelerle** çalışmak istiyorsanız, ilginizi
-  çekmeyen kayıtları `false` yapıp sadece istediklerinizi `true` bırakın.
+- **`#` ile başlayan satırlar pasiftir**, bot onları yok sayar.
+- **`HEPSI` satırı aktifken** (varsayılan durum budur — repo bu haliyle gelir),
+  alttaki liste tamamen yok sayılır ve **97 sitenin tamamı** izlenir. Kod
+  değişikliği veya başka hiçbir ayar gerekmez.
+- **Sadece belirli siteleri izlemek istiyorsanız:**
+  1. `HEPSI` satırının başına `#` koyup pasif hale getirin.
+  2. Alttaki listede istediğiniz sitelerin başındaki `#` işaretini silin.
+     Sadece # işareti kalkan satırlar aktif olur.
 - **Yeni bir Marmara sitesi eklemek** için (aynı temayı kullanıyorsa —
   `https://<alt-alan-adı>/allnotices` adresini tarayıcıda açıp "Aktif Duyurular"
-  görüyorsanız kullanır) aynı formatta yeni bir kayıt ekleyin, main.py'ye
-  dokunmanıza gerek yok.
-- 97 kayıt varsayılan olarak `enabled: true` gelir — yani kurulumdan sonra ek
-  bir işlem yapmazsanız bot doğrudan tüm bu siteleri izlemeye başlar.
+  görüyorsanız kullanır) önce `sites.json`'a `{"name", "host", "notices_url"}`
+  şeklinde bir kayıt ekleyin, sonra burada adını yorumdan çıkarıp aktif edin
+  (veya zaten `HEPSI` modundaysanız otomatik dahil olur).
 
 ## Kurulum
 
 > **Başka bir Marmara öğrencisi/personeli misiniz?** Bu repoyu GitHub'da fork'layın,
 > sadece adım 2-3'teki WhatsApp bilgilerini kendi hesabınızdan alıp kendi
-> fork'unuzun Secrets'ına ekleyin. `sites.json` zaten 97 siteyle geliyor,
-> istediğiniz gibi daraltabilirsiniz (yukarıdaki bölüme bakın). Kod değişikliği
-> gerekmez.
+> fork'unuzun Secrets'ına ekleyin. `secilecek_siteler.txt` varsayılan olarak
+> `HEPSI` modundadır (97 site), isterseniz yukarıdaki bölümdeki gibi daraltabilirsiniz.
+> Kod değişikliği gerekmez.
 
 ### 1) Repoyu oluşturun ve pushlayın
 
