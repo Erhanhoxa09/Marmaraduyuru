@@ -1,120 +1,113 @@
-# Marmara Üniversitesi Duyuru Takip ve Telegram Bildirim Botu
+# Marmara Üniversitesi Duyuru Takip Botu
 
-Her gün Türkiye saatiyle 09:00-09:03 arasında, `sites.json`'da listelenen **97
-Marmara Üniversitesi sitesinin** (tüm fakülteler, enstitüler, MYO'lar, daire
-başkanlıkları, koordinatörlükler — bkz. `site_scan_report.md`) duyuru
-sayfalarını eşzamanlı kontrol eder, önceden görülmemiş duyuruları Telegram
-üzerinden bildirir. Tamamen GitHub Actions üzerinde, sunucusuz çalışır.
+Seçtiğiniz Marmara Üniversitesi sitelerini her gün otomatik kontrol edip yeni
+duyuru çıktığında size **Telegram** üzerinden mesaj gönderen bir bot. Kendi
+bilgisayarınızda çalışmaz — tamamen **GitHub Actions** üzerinde, ücretsiz ve
+sunucusuz çalışır. Kurulum 15-20 dakika sürer, tamamen bu sayfadaki adımları
+takip ederek yapılır, kod bilgisi gerekmez.
 
-**Şablon/çoğaltılabilir tasarım:** Bu repo tek bir kişiye özel değil — Marmara'da
-herkes bu repoyu fork'layıp sadece kendi Telegram botunu ve (isterse) hangi
-sitelerin izleneceğini ayarlayarak kendi botunu çalıştırabilir. `main.py`'de
-kod değişikliği gerekmez.
+## Nasıl çalışır?
+
+Her gün Türkiye saatiyle 09:00 civarında bot otomatik uyanır, izlemesini
+istediğiniz siteleri kontrol eder, daha önce görmediği duyuru varsa size
+Telegram'dan mesaj atar. İlk kurulumda ya da yeni bir site eklediğinizde,
+o sitenin o anki duyuruları "yeni" sayılıp toplu bildirim göndermez —
+sessizce referans olarak kaydedilir; sadece bundan sonra çıkan gerçek yeni
+duyurular bildirilir.
+
+---
+
+## Adım 1 — Bu repoyu kendinize kopyalayın (fork)
+
+1. Bu reponun GitHub sayfasında sağ üstteki **"Fork"** butonuna basın.
+2. Açılan ekranda **"Create fork"**'a basın. Artık `github.com/<kullanıcı-adınız>/Marmaraduyuru` adında kendi kopyanız var.
+3. Bundan sonraki tüm adımlarda **kendi fork'unuzun** sayfasını kullanacaksınız (orijinal repoyu değil).
+
+## Adım 2 — Telegram bot'unuzu oluşturun
+
+1. Telegram'ı açın, arama kutusuna **@BotFather** yazıp resmi hesabı bulun, sohbeti açın.
+2. `/newbot` yazıp gönderin.
+3. BotFather bota bir **isim** soracak (örn. `Marmara Duyuru Botu`) — istediğinizi yazın.
+4. Sonra bir **kullanıcı adı** soracak, `bot` ile bitmeli (örn. `marmara_duyuru_bot`). Alınmışsa farklı bir tane deneyin.
+5. BotFather size şöyle bir mesajla bir **token** verecek:
+   ```
+   Use this token to access the HTTP API:
+   123456789:AAExxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   ```
+   Bu satırdaki uzun kodu bir yere kopyalayın — bu sizin `TELEGRAM_BOT_TOKEN`'ınız. **Kimseyle paylaşmayın**, botunuzu ele geçirebilir.
+6. Şimdi Telegram'da botunuzu bulun (BotFather'ın mesajındaki `t.me/...` linkine tıklayın) ve sohbeti açıp **`/start`** yazın. (Bot size ilk mesajı siz atmadan mesaj gönderemez, tek şart bu — bir kere yeterli.)
+
+### `chat_id`'nizi öğrenin
+
+1. Tarayıcınızda şu adresi açın, `<TOKEN>` yerine adım 5'te aldığınız token'ı yapıştırın:
+   ```
+   https://api.telegram.org/bot<TOKEN>/getUpdates
+   ```
+2. Sayfada şöyle bir JSON göreceksiniz, içinde `"chat":{"id":123456789, ...}` kısmındaki sayı sizin **`chat_id`**'niz:
+   ```json
+   {"ok":true,"result":[{"message":{"chat":{"id":123456789, ...}, "text":"/start", ...}}]}
+   ```
+3. `"result":[]` (boş) görüyorsanız, adım 6'daki `/start`'ı henüz göndermemişsiniz demektir — önce onu yapıp sayfayı yenileyin.
+
+## Adım 3 — GitHub Secrets'a bilgileri ekleyin
+
+1. Kendi fork'unuzun GitHub sayfasında **Settings** sekmesine girin.
+2. Sol menüden **Secrets and variables → Actions**'a tıklayın.
+3. Sağ üstteki yeşil **"New repository secret"** butonuna basın.
+4. **Name**: `TELEGRAM_BOT_TOKEN`, **Secret**: Adım 2.5'teki token → **"Add secret"**.
+5. Tekrar **"New repository secret"** → **Name**: `TELEGRAM_CHAT_ID`, **Secret**: Adım 2'nin sonundaki chat_id sayısı → **"Add secret"**.
+6. Artık listede iki secret görmelisiniz: `TELEGRAM_BOT_TOKEN` ve `TELEGRAM_CHAT_ID`.
+
+## Adım 4 — Hangi siteleri izleyeceğinizi seçin
+
+Repoda `secilecek_siteler.txt` adında düz metin bir dosya var, GitHub üzerinden
+düzenleyebilirsiniz (bilgisayarınıza indirmenize gerek yok):
+
+1. Fork'unuzda `secilecek_siteler.txt` dosyasına tıklayın.
+2. Sağ üstteki kalem ✏️ ikonuna (Edit) basın.
+3. Dosyanın en üstünde `HEPSI` satırı varsa ve **tüm 97 siteyi** izlemek istiyorsanız dokunmayın.
+4. **Sadece belirli siteleri** izlemek istiyorsanız:
+   - `HEPSI` satırının başına `#` koyup pasif hale getirin (`# HEPSI`).
+   - Aşağıdaki referans listede istediğiniz sitelerin başındaki `#` işaretini silin — sadece # kalkan satırlar aktif olur.
+5. Sağ üstte **"Commit changes..."** → **"Commit changes"** ile kaydedin.
+
+> Yeni bir Marmara sitesi eklemek isterseniz (aynı temayı kullanıyorsa) önce
+> `sites.json`'a `{"name", "host", "notices_url"}` şeklinde bir kayıt eklemeniz,
+> sonra burada aktif etmeniz gerekir.
+
+## Adım 5 — İlk çalıştırmayı yapın
+
+1. Fork'unuzda **Actions** sekmesine girin.
+2. GitHub "Actions'ı etkinleştir" diye bir uyarı gösteriyorsa **"I understand my workflows, go ahead and enable them"** butonuna basın (fork'larda Actions varsayılan kapalı gelir).
+3. Sol menüden **"Marmara Duyuru Takip Botu"**'na tıklayın.
+4. Sağ üstte çıkan **"Run workflow"** açılır menüsüne tıklayın, sonra tekrar yeşil **"Run workflow"** butonuna basın.
+5. Birkaç dakika sonra sayfayı yenileyin — çalışma yeşil tik ✅ ile bitmeli. Üstüne tıklayıp **"Run python main.py"** adımının loglarını görebilirsiniz.
+
+Bundan sonra bot her gün otomatik olarak Türkiye saatiyle 09:00-09:03 arasında
+çalışacak ve yeni bir duyuru çıktığında size Telegram'dan mesaj gönderecektir.
+Elle test etmek isterseniz her zaman Adım 5.3-5.4'ü tekrarlayabilirsiniz.
+
+---
 
 ## Dosyalar
 
 | Dosya | Görev |
 |---|---|
-| `main.py` | Seçilen siteleri eşzamanlı kazır, karşılaştırır, Telegram gönderir |
-| `secilecek_siteler.txt` | **Asıl kontrol dosyası** — hangi sitelerin izleneceğini buradan, düz metin olarak ayarlarsınız (bkz. aşağıda) |
-| `sites.json` | Site kataloğu (isim, host, duyuru URL'si) — genelde dokunmanız gerekmez, sadece yeni bir site eklerken |
+| `main.py` | Seçilen siteleri kazır, önceki duyurularla karşılaştırır, Telegram'a gönderir |
+| `secilecek_siteler.txt` | **Asıl kontrol dosyası** — hangi sitelerin izleneceği (bkz. Adım 4) |
+| `sites.json` | Site kataloğu (isim, host, duyuru URL'si) — sadece yeni bir site eklerken dokunulur |
+| `duyurular.json` | Site başına daha önce görülmüş duyuruların kaydı (bot tarafından otomatik güncellenir) |
+| `.github/workflows/main.yml` | Günlük zamanlama ve çalıştırma tanımı |
 | `requirements.txt` | Python bağımlılıkları |
-| `duyurular.json` | Site başına daha önce görülmüş duyuruların kaydı (bot tarafından otomatik oluşturulur/güncellenir) |
-| `.github/workflows/main.yml` | Günlük zamanlama, çalıştırma ve `duyurular.json`'u repoya commit'leme |
-| `site_list.txt`, `site_scan_report.md`, `matched_sites.json` | `sites.json`'ın nasıl üretildiğine dair keşif/tarama çıktıları (referans, bot bunları kullanmaz) |
 
-**Not:** Bir site `duyurular.json`'da ilk kez görülüyorsa (yeni kurulum ya da
-sonradan seçime eklenmiş bir site), o sitenin mevcut duyuruları "yeni" sayıp
-toplu bildirim göndermek yerine sadece referans olarak kaydedilir. Böylece ne
-ilk kurulumda ne de sonradan bir site eklediğinizde toplu bildirim yağmuruna
-maruz kalmazsınız — bot yalnızca gerçekten yeni çıkan duyuruları bildirir.
+## Sorun giderme
 
-## `secilecek_siteler.txt` — hangi siteleri izleyeceğinizi ayarlamak
+- **Actions sekmesinde çalışma görünmüyor / hiç tetiklenmiyor:** Fork'larda Actions varsayılan kapalı gelir, Adım 5.2'yi kontrol edin.
+- **Çalışma kırmızı ✗ ile bitiyor:** Loglara tıklayıp `Run python main.py` adımına bakın; genelde `TELEGRAM_BOT_TOKEN`/`TELEGRAM_CHAT_ID` eksik veya yanlış girilmiş olur (Adım 3'ü kontrol edin).
+- **Mesaj hiç gelmiyor ama çalışma yeşil:** O çalıştırmada gerçekten yeni bir duyuru olmayabilir — loglarda "Toplamda yeni duyuru yok." yazıyorsa normaldir, sorun değil.
+- **Botu yeniden adlandırmak/token'ı yenilemek isterseniz:** Telegram'da BotFather'a `/mybots` yazıp botunuzu seçin.
 
-Programcı olmayan biri de kolayca düzenleyebilsin diye JSON değil, düz metin
-kullanıyoruz. Dosyanın mantığı:
-
-```
-HEPSI
-
-# --- Aşağıdaki 97 site referans listesidir (isim -> host) ---
-# Adalet Meslek Yüksekokulu -> adalet.marmara.edu.tr
-# Hukuk Fakültesi -> hukuk.marmara.edu.tr
-# Tıp Fakültesi -> tip.marmara.edu.tr
-...
-```
-
-- **`#` ile başlayan satırlar pasiftir**, bot onları yok sayar.
-- **`HEPSI` satırı aktifken** (varsayılan durum budur — repo bu haliyle gelir),
-  alttaki liste tamamen yok sayılır ve **97 sitenin tamamı** izlenir. Kod
-  değişikliği veya başka hiçbir ayar gerekmez.
-- **Sadece belirli siteleri izlemek istiyorsanız:**
-  1. `HEPSI` satırının başına `#` koyup pasif hale getirin.
-  2. Alttaki listede istediğiniz sitelerin başındaki `#` işaretini silin.
-     Sadece # işareti kalkan satırlar aktif olur.
-- **Yeni bir Marmara sitesi eklemek** için (aynı temayı kullanıyorsa —
-  `https://<alt-alan-adı>/allnotices` adresini tarayıcıda açıp "Aktif Duyurular"
-  görüyorsanız kullanır) önce `sites.json`'a `{"name", "host", "notices_url"}`
-  şeklinde bir kayıt ekleyin, sonra burada adını yorumdan çıkarıp aktif edin
-  (veya zaten `HEPSI` modundaysanız otomatik dahil olur).
-
-## Kurulum
-
-> **Başka bir Marmara öğrencisi/personeli misiniz?** Bu repoyu GitHub'da fork'layın,
-> sadece adım 2-3'teki Telegram bilgilerini kendi hesabınızdan alıp kendi
-> fork'unuzun Secrets'ına ekleyin. `secilecek_siteler.txt` varsayılan olarak
-> `HEPSI` modundadır (97 site), isterseniz yukarıdaki bölümdeki gibi daraltabilirsiniz.
-> Kod değişikliği gerekmez.
-
-### 1) Repoyu oluşturun ve pushlayın
-
-```bash
-cd /home/emin/Desktop/marmaraduyurutakip
-git init
-git add .
-git commit -m "Marmara duyuru takip botu"
-git branch -M main
-git remote add origin <GITHUB_REPO_URL>
-git push -u origin main
-```
-
-> Repo **private** olabilir, workflow yine de çalışır.
-
-### 2) Telegram bot'unuzu oluşturun
-
-1. Telegram'da **@BotFather**'ı açın, `/newbot` yazın, bir isim ve kullanıcı adı
-   verin (kullanıcı adı `bot` ile bitmeli, örn. `marmara_duyuru_bot`).
-2. BotFather size bir **bot token** verecek (örn. `123456789:AAExxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`).
-   Bu değer `TELEGRAM_BOT_TOKEN` olacak.
-3. Kendi Telegram'ınızdan yeni botunuzu bulup **/start** yazın (bota ilk mesajı
-   siz göndermeden bot size mesaj gönderemez — Telegram'ın tek şartı bu, sonra
-   süresiz geçerli).
-4. `chat_id`'nizi öğrenmek için tarayıcıda şu adresi açın (TOKEN'ı kendi
-   token'ınızla değiştirin):
-   `https://api.telegram.org/bot<TOKEN>/getUpdates`
-   Dönen JSON'da `"message":{"chat":{"id": ...}}` alanındaki sayı sizin
-   `chat_id`'niz — bu değer `TELEGRAM_CHAT_ID` olacak. (Hiçbir şey görünmüyorsa
-   önce adım 3'teki `/start`'ı gönderdiğinizden emin olun.)
-
-### 3) GitHub Secrets'a ekleyin
-
-Repo sayfasında: **Settings → Secrets and variables → Actions → New repository secret**
-
-| Secret adı | Değer |
-|---|---|
-| `TELEGRAM_BOT_TOKEN` | Adım 2.2'de BotFather'dan aldığınız token |
-| `TELEGRAM_CHAT_ID` | Adım 2.4'te `getUpdates`'ten okuduğunuz chat_id |
-
-### 4) Workflow'u test edin
-
-Secrets eklendikten sonra repo sayfasında **Actions → Marmara Duyuru Takip Botu →
-Run workflow** ile elle bir kez tetikleyip loglardan doğru çalıştığını doğrulayın
-(workflow `workflow_dispatch` ile manuel tetiklemeye açıktır).
-
-Bundan sonra bot her gün otomatik olarak 09:00-09:03 TR arasında çalışacak ve
-yeni duyuru çıktığında size Telegram mesajı gönderecektir.
-
-## Yerel test
+## Yerel test (isteğe bağlı)
 
 ```bash
 python3 -m venv venv && source venv/bin/activate
