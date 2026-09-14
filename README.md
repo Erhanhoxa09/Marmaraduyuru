@@ -107,6 +107,23 @@ Elle test etmek isterseniz her zaman Adım 5.3-5.4'ü tekrarlayabilirsiniz.
 - **Mesaj hiç gelmiyor ama çalışma yeşil:** O çalıştırmada gerçekten yeni bir duyuru olmayabilir — loglarda "Toplamda yeni duyuru yok." yazıyorsa normaldir, sorun değil.
 - **Botu yeniden adlandırmak/token'ı yenilemek isterseniz:** Telegram'da BotFather'a `/mybots` yazıp botunuzu seçin.
 
+## Başkalarına duyurmak ister misin?
+
+Bu repoyu Marmara'daki arkadaşlarınla/gruplarınla paylaşmak istersen, aşağıdaki
+metni olduğu gibi kopyalayıp Telegram/WhatsApp grubuna, sosyal medyaya vs.
+atabilirsin:
+
+> 📢 **Marmara Duyuru Botu**
+>
+> Bölümünün/enstitünün/birimin sitesindeki duyuruları kaçırmaktan bıktın mı? Bu bot senin için:
+>
+> Marmara Üniversitesi'nin istediğin sitelerini (fakülte, enstitü, daire başkanlığı vs.) her sabah otomatik kontrol edip yeni duyuru çıktığında Telegram'a mesaj atıyor. Tamamen ücretsiz, GitHub üzerinde çalışıyor, sunucu falan gerekmiyor.
+>
+> Kurmak için kod bilgisi gerekmiyor — GitHub'da "Fork" butonuna basıp README'deki adımları takip etmen yeterli (~15 dk):
+> 👉 https://github.com/mEhMet6968/Marmaraduyuru
+>
+> Herkes kendi bot'unu, kendi Telegram hesabına, kendi izlediği sitelerle kurar.
+
 ## Yerel test (isteğe bağlı)
 
 ```bash
