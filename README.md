@@ -1,13 +1,13 @@
-# Marmara Üniversitesi Duyuru Takip ve WhatsApp Bildirim Botu
+# Marmara Üniversitesi Duyuru Takip ve Telegram Bildirim Botu
 
 Her gün Türkiye saatiyle 09:00-09:20 arasında, `sites.json`'da listelenen **97
 Marmara Üniversitesi sitesinin** (tüm fakülteler, enstitüler, MYO'lar, daire
 başkanlıkları, koordinatörlükler — bkz. `site_scan_report.md`) duyuru
-sayfalarını eşzamanlı kontrol eder, önceden görülmemiş duyuruları WhatsApp
+sayfalarını eşzamanlı kontrol eder, önceden görülmemiş duyuruları Telegram
 üzerinden bildirir. Tamamen GitHub Actions üzerinde, sunucusuz çalışır.
 
 **Şablon/çoğaltılabilir tasarım:** Bu repo tek bir kişiye özel değil — Marmara'da
-herkes bu repoyu fork'layıp sadece kendi WhatsApp numarasını ve (isterse) hangi
+herkes bu repoyu fork'layıp sadece kendi Telegram botunu ve (isterse) hangi
 sitelerin izleneceğini ayarlayarak kendi botunu çalıştırabilir. `main.py`'de
 kod değişikliği gerekmez.
 
@@ -15,7 +15,7 @@ kod değişikliği gerekmez.
 
 | Dosya | Görev |
 |---|---|
-| `main.py` | Seçilen siteleri eşzamanlı kazır, karşılaştırır, WhatsApp gönderir |
+| `main.py` | Seçilen siteleri eşzamanlı kazır, karşılaştırır, Telegram gönderir |
 | `secilecek_siteler.txt` | **Asıl kontrol dosyası** — hangi sitelerin izleneceğini buradan, düz metin olarak ayarlarsınız (bkz. aşağıda) |
 | `sites.json` | Site kataloğu (isim, host, duyuru URL'si) — genelde dokunmanız gerekmez, sadece yeni bir site eklerken |
 | `requirements.txt` | Python bağımlılıkları |
@@ -61,7 +61,7 @@ HEPSI
 ## Kurulum
 
 > **Başka bir Marmara öğrencisi/personeli misiniz?** Bu repoyu GitHub'da fork'layın,
-> sadece adım 2-3'teki WhatsApp bilgilerini kendi hesabınızdan alıp kendi
+> sadece adım 2-3'teki Telegram bilgilerini kendi hesabınızdan alıp kendi
 > fork'unuzun Secrets'ına ekleyin. `secilecek_siteler.txt` varsayılan olarak
 > `HEPSI` modundadır (97 site), isterseniz yukarıdaki bölümdeki gibi daraltabilirsiniz.
 > Kod değişikliği gerekmez.
@@ -80,30 +80,21 @@ git push -u origin main
 
 > Repo **private** olabilir, workflow yine de çalışır.
 
-### 2) Meta WhatsApp Cloud API bilgilerini alın
+### 2) Telegram bot'unuzu oluşturun
 
-1. https://developers.facebook.com adresinden bir **Meta Developer** hesabı açın
-   (yoksa mevcut Facebook hesabınızla giriş yapabilirsiniz).
-2. **My Apps → Create App** ile yeni bir uygulama oluşturun, tür olarak
-   **Business** seçin.
-3. Uygulama panelinde **WhatsApp → Getting Started**'a girin. Meta size otomatik
-   olarak:
-   - Bir **test telefon numarası** ve buna ait **Phone number ID** (`WA_PHONE_NUMBER_ID`) verir.
-   - Bir **geçici (24 saatlik) erişim token'ı** verir — bunu kalıcı hale getirmeniz gerekir (adım 4).
-4. Kalıcı token için: **App ayarları → Business Settings → System Users**'a gidip
-   bir sistem kullanıcısı oluşturun, WhatsApp uygulamanıza `whatsapp_business_messaging`
-   ve `whatsapp_business_management` yetkilerini atayın ve buradan **süresiz
-   (never expire)** bir erişim token'ı üretin. Bu token'ı `WA_TOKEN` olarak kullanacaksınız.
-5. **Bildirim alacak telefon numarasını** (kendi WhatsApp numaranız,
-   ülke kodu ile ve `+` işareti olmadan, örn. `905xxxxxxxxx`) test panelindeki
-   **"To"** alanına ekleyip doğrulama kodunu girin — Meta test modunda sadece
-   burada onaylanmış numaralara mesaj gönderebilir. Bu numara `TARGET_PHONE_NUMBER`
-   olacak.
-6. (İsteğe bağlı, kalıcı kullanım için) Uygulamayı **App Review**'dan geçirip
-   canlıya (Live) alın ve kendi işletme telefon numaranızı ekleyin; test modunda
-   kalırsanız 24 saatte bir "Hello World" şablon mesajıyla pencereyi yenilemeniz
-   gerekebilir — günlük duyuru botu için bu genelde sorun çıkarmaz çünkü zaten
-   her gün mesaj gönderiliyor.
+1. Telegram'da **@BotFather**'ı açın, `/newbot` yazın, bir isim ve kullanıcı adı
+   verin (kullanıcı adı `bot` ile bitmeli, örn. `marmara_duyuru_bot`).
+2. BotFather size bir **bot token** verecek (örn. `123456789:AAExxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`).
+   Bu değer `TELEGRAM_BOT_TOKEN` olacak.
+3. Kendi Telegram'ınızdan yeni botunuzu bulup **/start** yazın (bota ilk mesajı
+   siz göndermeden bot size mesaj gönderemez — Telegram'ın tek şartı bu, sonra
+   süresiz geçerli).
+4. `chat_id`'nizi öğrenmek için tarayıcıda şu adresi açın (TOKEN'ı kendi
+   token'ınızla değiştirin):
+   `https://api.telegram.org/bot<TOKEN>/getUpdates`
+   Dönen JSON'da `"message":{"chat":{"id": ...}}` alanındaki sayı sizin
+   `chat_id`'niz — bu değer `TELEGRAM_CHAT_ID` olacak. (Hiçbir şey görünmüyorsa
+   önce adım 3'teki `/start`'ı gönderdiğinizden emin olun.)
 
 ### 3) GitHub Secrets'a ekleyin
 
@@ -111,9 +102,8 @@ Repo sayfasında: **Settings → Secrets and variables → Actions → New repos
 
 | Secret adı | Değer |
 |---|---|
-| `WA_TOKEN` | Adım 2.4'te aldığınız kalıcı erişim token'ı |
-| `WA_PHONE_NUMBER_ID` | Adım 2.3'te aldığınız Phone number ID |
-| `TARGET_PHONE_NUMBER` | Bildirimlerin gideceği numara (örn. `905xxxxxxxxx`) |
+| `TELEGRAM_BOT_TOKEN` | Adım 2.2'de BotFather'dan aldığınız token |
+| `TELEGRAM_CHAT_ID` | Adım 2.4'te `getUpdates`'ten okuduğunuz chat_id |
 
 ### 4) Workflow'u test edin
 
@@ -122,13 +112,13 @@ Run workflow** ile elle bir kez tetikleyip loglardan doğru çalıştığını d
 (workflow `workflow_dispatch` ile manuel tetiklemeye açıktır).
 
 Bundan sonra bot her gün otomatik olarak 09:00-09:20 TR arasında çalışacak ve
-yeni duyuru çıktığında size WhatsApp mesajı gönderecektir.
+yeni duyuru çıktığında size Telegram mesajı gönderecektir.
 
 ## Yerel test
 
 ```bash
 python3 -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
-export WA_TOKEN=... WA_PHONE_NUMBER_ID=... TARGET_PHONE_NUMBER=...
+export TELEGRAM_BOT_TOKEN=... TELEGRAM_CHAT_ID=...
 SKIP_RANDOM_DELAY=1 python main.py   # rastgele beklemeyi atlayarak hemen çalıştırır
 ```

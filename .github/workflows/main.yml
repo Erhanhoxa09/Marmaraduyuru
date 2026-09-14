@@ -30,11 +30,10 @@ jobs:
       - name: Bağımlılıkları kur
         run: pip install -r requirements.txt
 
-      - name: Duyuruları kontrol et ve WhatsApp bildirimi gönder
+      - name: Duyuruları kontrol et ve Telegram bildirimi gönder
         env:
-          WA_TOKEN: ${{ secrets.WA_TOKEN }}
-          WA_PHONE_NUMBER_ID: ${{ secrets.WA_PHONE_NUMBER_ID }}
-          TARGET_PHONE_NUMBER: ${{ secrets.TARGET_PHONE_NUMBER }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python main.py
 
       - name: duyurular.json değişikliğini repoya commit'le

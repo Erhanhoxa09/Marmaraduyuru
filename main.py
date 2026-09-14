@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Marmara Üniversitesi duyuru takip ve WhatsApp bildirim botu.
+"""Marmara Üniversitesi duyuru takip ve Telegram bildirim botu.
 
 Akış:
 1) `sites.json` (site kataloğu) + `secilecek_siteler.txt` (kullanıcının hangi
    siteleri izlemek istediği) birleştirilip izlenecek site listesi çıkarılır.
 2) Bu sitelerin duyuru sayfaları eşzamanlı çekilir.
 3) `duyurular.json`'daki (site başına ayrı) daha önce görülmüş duyurularla karşılaştırılır.
-4) Her site için gerçekten yeni olan duyurular WhatsApp Cloud API ile gönderilir.
+4) Her site için gerçekten yeni olan duyurular Telegram Bot API ile gönderilir.
 5) `duyurular.json` güncel duyurularla güncellenir.
 
 Yeni bir Marmara sitesi eklemek için `sites.json`'a bir kayıt eklemek yeterli
@@ -57,21 +57,12 @@ MAX_RANDOM_DELAY_SECONDS = 1200
 MAX_WORKERS = 8
 REQUEST_TIMEOUT = (10, 20)  # (connect, read) saniye
 
-# WhatsApp gönderimleri arasında Meta Cloud API'ye art arda çok hızlı istek
-# atmamak için kibarca bekleme.
-WHATSAPP_SEND_DELAY_SECONDS = 0.5
+# Telegram gönderimleri arasında API'ye art arda çok hızlı istek atmamak için
+# kibarca bekleme.
+TELEGRAM_SEND_DELAY_SECONDS = 0.5
 
-WA_API_VERSION = os.environ.get("WA_API_VERSION", "v21.0")
-WA_TOKEN = os.environ.get("WA_TOKEN")
-WA_PHONE_NUMBER_ID = os.environ.get("WA_PHONE_NUMBER_ID")
-TARGET_PHONE_NUMBER = os.environ.get("TARGET_PHONE_NUMBER")
-
-# Meta WhatsApp Manager'da onaylatılmış şablonun adı/dili. Şablonun body'si:
-# "Marmara Üniversitesi duyuru takip botu yeni bir duyuru tespit etti. ...
-#  Duyurunun yayınlandığı birim: {{1}}. Duyurunun başlığı şöyledir: {{2}}.
-#  ... bağlantı: {{3}}. Bu mesaj otomatik olarak gönderilmiştir."
-WA_TEMPLATE_NAME = os.environ.get("WA_TEMPLATE_NAME", "yeni_duyuru")
-WA_TEMPLATE_LANGUAGE = os.environ.get("WA_TEMPLATE_LANGUAGE", "tr")
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
 
 # Yerel testte (`SKIP_RANDOM_DELAY=1 python main.py`) rastgele beklemeyi atlamak için.
 SKIP_RANDOM_DELAY = os.environ.get("SKIP_RANDOM_DELAY") == "1"
@@ -268,58 +259,42 @@ def save_known(data):
         logger.error("duyurular.json yazılamadı: %s", exc)
 
 
-def send_whatsapp_notification(site_name, title, link):
-    """Meta WhatsApp Cloud API üzerinden onaylı 'yeni_duyuru' şablonuyla bildirim gönderir.
+def send_telegram_notification(site_name, title, link):
+    """Telegram Bot API üzerinden bildirim gönderir.
 
-    Serbest metin (type=text) yerine ONAYLI BİR ŞABLON kullanıyoruz çünkü bu bot
-    işletme tarafından başlatılan (business-initiated) otomatik bir bildirim
-    gönderiyor: alıcı son 24 saat içinde bu numarayı mesajlamadıysa, WhatsApp
-    serbest metin mesajlarını API 200 dönse bile SESSİZCE teslim etmiyor.
-    Onaylı şablonlar bu 24 saatlik "müşteri penceresi" kısıtlamasına tabi değil,
-    bu yüzden günlük otomatik çalışan bir bot için doğru yöntem bu.
+    WhatsApp Cloud API'nin aksine Telegram'da onaylı şablon veya 24 saatlik
+    "müşteri penceresi" kısıtlaması yok — kullanıcı bota bir kere /start
+    dediğinde bot o chat_id'ye süresiz, serbest metin mesaj gönderebilir.
     """
-    if not (WA_TOKEN and WA_PHONE_NUMBER_ID and TARGET_PHONE_NUMBER):
+    if not (TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID):
         logger.error(
-            "WhatsApp ortam değişkenleri eksik (WA_TOKEN / WA_PHONE_NUMBER_ID / "
-            "TARGET_PHONE_NUMBER). Mesaj gönderilemiyor."
+            "Telegram ortam değişkenleri eksik (TELEGRAM_BOT_TOKEN / "
+            "TELEGRAM_CHAT_ID). Mesaj gönderilemiyor."
         )
         return False
 
-    url = f"https://graph.facebook.com/{WA_API_VERSION}/{WA_PHONE_NUMBER_ID}/messages"
-    headers = {
-        "Authorization": f"Bearer {WA_TOKEN}",
-        "Content-Type": "application/json",
-    }
+    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+    text = (
+        f"📢 Yeni duyuru: {site_name}\n\n"
+        f"{title}\n\n"
+        f"{link}"
+    )
     payload = {
-        "messaging_product": "whatsapp",
-        "to": TARGET_PHONE_NUMBER,
-        "type": "template",
-        "template": {
-            "name": WA_TEMPLATE_NAME,
-            "language": {"code": WA_TEMPLATE_LANGUAGE},
-            "components": [
-                {
-                    "type": "body",
-                    "parameters": [
-                        {"type": "text", "text": site_name},
-                        {"type": "text", "text": title},
-                        {"type": "text", "text": link},
-                    ],
-                }
-            ],
-        },
+        "chat_id": TELEGRAM_CHAT_ID,
+        "text": text,
+        "disable_web_page_preview": False,
     }
 
     try:
-        response = requests.post(url, headers=headers, json=payload, timeout=30)
+        response = requests.post(url, json=payload, timeout=30)
         response.raise_for_status()
-        logger.info("WhatsApp şablon mesajı gönderildi.")
+        logger.info("Telegram mesajı gönderildi.")
         return True
     except requests.RequestException as exc:
         detail = ""
         if getattr(exc, "response", None) is not None:
             detail = f" | Yanıt: {exc.response.text}"
-        logger.error("WhatsApp mesajı gönderilemedi: %s%s", exc, detail)
+        logger.error("Telegram mesajı gönderilemedi: %s%s", exc, detail)
         return False
 
 
@@ -369,18 +344,18 @@ def main():
     if not new_items:
         logger.info("Toplamda yeni duyuru yok.")
     else:
-        logger.info("Toplam %d yeni duyuru WhatsApp ile gönderilecek.", len(new_items))
+        logger.info("Toplam %d yeni duyuru Telegram ile gönderilecek.", len(new_items))
         sent = 0
         for site, notice in new_items:
             try:
-                if send_whatsapp_notification(site["name"], notice["baslik"], notice["link"]):
+                if send_telegram_notification(site["name"], notice["baslik"], notice["link"]):
                     sent += 1
             except Exception as exc:  # Beklenmeyen bir hata tüm çalıştırmayı düşürmesin.
                 logger.error("[%s] duyuru gönderilirken beklenmeyen hata: %s", site["host"], exc)
-            time.sleep(WHATSAPP_SEND_DELAY_SECONDS)
+            time.sleep(TELEGRAM_SEND_DELAY_SECONDS)
 
         if sent < len(new_items):
-            logger.warning("%d/%d yeni duyuru WhatsApp ile gönderilebildi.", sent, len(new_items))
+            logger.warning("%d/%d yeni duyuru Telegram ile gönderilebildi.", sent, len(new_items))
 
     save_known(updated_known)
 
