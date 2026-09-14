@@ -1,6 +1,6 @@
 # Marmara Üniversitesi Duyuru Takip ve Telegram Bildirim Botu
 
-Her gün Türkiye saatiyle 09:00-09:20 arasında, `sites.json`'da listelenen **97
+Her gün Türkiye saatiyle 09:00-09:03 arasında, `sites.json`'da listelenen **97
 Marmara Üniversitesi sitesinin** (tüm fakülteler, enstitüler, MYO'lar, daire
 başkanlıkları, koordinatörlükler — bkz. `site_scan_report.md`) duyuru
 sayfalarını eşzamanlı kontrol eder, önceden görülmemiş duyuruları Telegram
@@ -111,7 +111,7 @@ Secrets eklendikten sonra repo sayfasında **Actions → Marmara Duyuru Takip Bo
 Run workflow** ile elle bir kez tetikleyip loglardan doğru çalıştığını doğrulayın
 (workflow `workflow_dispatch` ile manuel tetiklemeye açıktır).
 
-Bundan sonra bot her gün otomatik olarak 09:00-09:20 TR arasında çalışacak ve
+Bundan sonra bot her gün otomatik olarak 09:00-09:03 TR arasında çalışacak ve
 yeni duyuru çıktığında size Telegram mesajı gönderecektir.
 
 ## Yerel test

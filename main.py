@@ -48,9 +48,9 @@ ALL_SITES_KEYWORDS = {"HEPSI", "HEPSİ", "ALL", "TÜMÜ", "TUMU"}
 HOST_PATTERN = r"([a-z0-9\-]+(?:\.[a-z0-9\-]+)*\.marmara\.edu\.tr)"
 
 # GitHub Actions cron'u zaten 09:00 TR civarında tetikliyor; script ek olarak
-# 0-1200 saniye (0-20 dk) rastgele bekleyerek her gün farklı bir saatte
+# 0-180 saniye (0-3 dk) rastgele bekleyerek her gün farklı bir saatte
 # kontrol yapılmasını sağlıyor (bkz. proje talimatı madde 2.2).
-MAX_RANDOM_DELAY_SECONDS = 1200
+MAX_RANDOM_DELAY_SECONDS = 180
 
 # Tek seferde en fazla bu kadar site eşzamanlı çekilir — hem hızlı olsun hem de
 # üniversite sunucularına makul bir yükten fazlası binmesin.
@@ -83,7 +83,7 @@ logger = logging.getLogger("marmara-duyuru-bot")
 
 
 def random_delay():
-    """09:00-09:20 arası rastgele bir saatte kontrol edebilmek için bekler."""
+    """09:00-09:03 arası rastgele bir saatte kontrol edebilmek için bekler."""
     if SKIP_RANDOM_DELAY:
         logger.info("SKIP_RANDOM_DELAY=1: rastgele bekleme atlanıyor.")
         return
