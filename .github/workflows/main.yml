@@ -45,5 +45,6 @@ jobs:
             echo "duyurular.json değişmedi, commit atılmıyor."
           else
             git commit -m "chore: duyurular.json güncellendi [skip ci]"
+            git pull --rebase origin main
             git push
           fi
