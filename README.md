@@ -124,6 +124,15 @@ atabilirsin:
 >
 > Herkes kendi bot'unu, kendi Telegram hesabına, kendi izlediği sitelerle kurar.
 
+## ⭐ Beğendin mi?
+
+Bu bot işine yaradıysa:
+
+- Sağ üstteki **⭐ Star** butonuna basarak destekleyebilirsin.
+- Bir hata bulursan veya öneri/istek varsa **Issues** sekmesinden açabilirsin.
+- Kod katkısı yapmak istersen fork'la, değişikliğini yap, bir **Pull Request** aç.
+- Aynı temayı kullanan başka bir Marmara sitesi biliyorsan `sites.json`'a ekleyip PR gönderebilirsin — herkes faydalanır.
+
 ## Yerel test (isteğe bağlı)
 
 ```bash
