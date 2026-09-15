@@ -28,6 +28,7 @@ import random
 import re
 import sys
 import time
+from datetime import datetime, timedelta, timezone
 from urllib.parse import urljoin
 
 import requests
@@ -66,6 +67,14 @@ TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
 
 # Yerel testte (`SKIP_RANDOM_DELAY=1 python main.py`) rastgele beklemeyi atlamak için.
 SKIP_RANDOM_DELAY = os.environ.get("SKIP_RANDOM_DELAY") == "1"
+
+# Türkiye saat dilimi (UTC+3, DST yok) — GitHub Actions runner'ı UTC çalıştığı
+# için "bugün"ün tarihini kullanıcının göreceği gibi göstermek için kullanılır.
+TURKEY_UTC_OFFSET = timedelta(hours=3)
+TURKISH_MONTHS = [
+    "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
+    "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık",
+]
 
 HEADERS = {
     # Bazı okul sunucuları tarayıcı User-Agent'ı olmayan istekleri engelliyor.
@@ -259,8 +268,14 @@ def save_known(data):
         logger.error("duyurular.json yazılamadı: %s", exc)
 
 
-def send_telegram_notification(site_name, title, link):
-    """Telegram Bot API üzerinden bildirim gönderir.
+def turkish_today_str():
+    """Türkiye saatiyle 'bugün'ü "15 Eylül" formatında döner."""
+    tr_now = datetime.now(timezone.utc) + TURKEY_UTC_OFFSET
+    return f"{tr_now.day} {TURKISH_MONTHS[tr_now.month - 1]}"
+
+
+def send_telegram_text(text):
+    """Telegram Bot API üzerinden serbest metin mesaj gönderir.
 
     WhatsApp Cloud API'nin aksine Telegram'da onaylı şablon veya 24 saatlik
     "müşteri penceresi" kısıtlaması yok — kullanıcı bota bir kere /start
@@ -274,11 +289,6 @@ def send_telegram_notification(site_name, title, link):
         return False
 
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-    text = (
-        f"📢 Yeni duyuru: {site_name}\n\n"
-        f"{title}\n\n"
-        f"{link}"
-    )
     payload = {
         "chat_id": TELEGRAM_CHAT_ID,
         "text": text,
@@ -296,6 +306,28 @@ def send_telegram_notification(site_name, title, link):
             detail = f" | Yanıt: {exc.response.text}"
         logger.error("Telegram mesajı gönderilemedi: %s%s", exc, detail)
         return False
+
+
+def send_telegram_notification(site_name, title, link):
+    """Yeni bir duyuru için bildirim gönderir."""
+    text = (
+        f"📢 Yeni duyuru: {site_name}\n\n"
+        f"{title}\n\n"
+        f"{link}"
+    )
+    return send_telegram_text(text)
+
+
+def send_telegram_heartbeat():
+    """Bugün yeni duyuru olmadığını, ama botun çalıştığını bildirir.
+
+    Kullanıcı bunu her gün görüp botun gerçekten çalıştığından emin olabilsin
+    diye — aksi halde tek bildirim kanalı yeni duyuru olduğunda gelen mesajlar
+    olurdu ve günler boyu sessizlik "bot çalışıyor mu, bozuldu mu?" sorusunu
+    doğururdu.
+    """
+    text = f"✅ {turkish_today_str()} - Duyuru yok"
+    return send_telegram_text(text)
 
 
 def main():
@@ -343,6 +375,7 @@ def main():
 
     if not new_items:
         logger.info("Toplamda yeni duyuru yok.")
+        send_telegram_heartbeat()
     else:
         logger.info("Toplam %d yeni duyuru Telegram ile gönderilecek.", len(new_items))
         sent = 0
