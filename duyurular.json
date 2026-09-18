@@ -754,9 +754,19 @@
   ],
   "fen.marmara.edu.tr": [
     {
+      "baslik": "Sektör Kampüste İş Birliği Protokolü Kapsamında Açılan MTH4027 Dersi Hakkında Duyuru",
+      "tarih": "17.09.2026",
+      "link": "https://fen.marmara.edu.tr/notice/sektor-kampuste-is-birligi-protokolu-kapsaminda-acilan-mth4027-dersi-hakkinda-duyuru"
+    },
+    {
       "baslik": "2026–2027 Eğitim-Öğretim Yılı Yemek Bursu Başvuruları",
       "tarih": "15.09.2026",
       "link": "https://fen.marmara.edu.tr/notice/2026-2027-egitim-ogretim-yili-yemek-bursu-basvurulari"
+    },
+    {
+      "baslik": "MCWA 2026 Matematik Bölümümüz Ev Sahipliğinde Gerçekleştirildi",
+      "tarih": "10.09.2026",
+      "link": "https://fen.marmara.edu.tr/notice/mcwa-2026-matematik-bolumumuz-ev-sahipliginde-gerceklestirildi"
     },
     {
       "baslik": "2026–2027 TEV Üniversite Eğitim Bursu Başvuruları",
@@ -767,6 +777,11 @@
       "baslik": "IV. Uluslararası KBRN Kongresi",
       "tarih": "07.09.2026",
       "link": "https://fen.marmara.edu.tr/notice/iv-uluslararasi-kbrn-kongresi"
+    },
+    {
+      "baslik": "ICMS 2026 Matematik Bölümümüz Ev Sahipliğinde Gerçekleştirildi",
+      "tarih": "07.09.2026",
+      "link": "https://fen.marmara.edu.tr/notice/icms-2026-matematik-bolumumuz-ev-sahipliginde-gerceklestirildi"
     },
     {
       "baslik": "Fakültemiz ICBME 2026’da Uluslararası Başarıyla Temsil Edildi",
@@ -812,21 +827,6 @@
       "baslik": "10th International Conference of Mathematical Sciences (ICMS 2026)",
       "tarih": "22.04.2026",
       "link": "https://fen.marmara.edu.tr/notice/10th-international-conference-of-mathematical-sciences-icms-2026"
-    },
-    {
-      "baslik": "2025-2026 Eğitim-Öğretim Yılı Akademik Kurul Toplantısı ve 2025 Yılı Akademik Performans Ödül Töreni Gerçekleştirildi",
-      "tarih": "09.04.2026",
-      "link": "https://fen.marmara.edu.tr/notice/2025-2026-egitim-ogretim-yili-akademik-kurul-toplantisi-ve-2025-yili-akademik-performans-odul-toreni-gerceklestirildi"
-    },
-    {
-      "baslik": "Akademik Kurul Toplantısı ve Performans Ödül Töreni Daveti",
-      "tarih": "09.03.2026",
-      "link": "https://fen.marmara.edu.tr/notice/akademik-kurul-toplantisi-ve-performans-odul-toreni-daveti"
-    },
-    {
-      "baslik": "Prof. Dr. İbrahim İlker Özyiğit, 2026 yılı TÜBİTAK Kutup Araştırmaları Proje Başarısı",
-      "tarih": "17.02.2026",
-      "link": "https://fen.marmara.edu.tr/notice/prof-dr-ibrahim-ilker-ozyigit-2026-yili-tubitak-kutup-arastirmalari-proje-basarisi"
     }
   ],
   "fef.marmara.edu.tr": [
@@ -3251,6 +3251,11 @@
   ],
   "teknoloji.marmara.edu.tr": [
     {
+      "baslik": "2026-2027 Eğitim-Öğretim Yılı Güz Yarıyılı Marmara Üniversitesi Teknoloji Fakültesi Sektör Kampüste İş Birliği Protokolü Kapsamında Açılan Dersler Hakkında Duyuru",
+      "tarih": "18.09.2026",
+      "link": "https://teknoloji.marmara.edu.tr/notice/2026-2027-egitim-ogretim-yili-guz-yariyili-marmara-universitesi-teknoloji-fakultesi-sektor-kampuste-is-birligi-protokolu-kapsaminda-acilan-dersler-hakkinda-duyuru"
+    },
+    {
       "baslik": "2026–2027 Zorunlu Yabancı Dil Muafiyet Sınavı Duyurusu",
       "tarih": "16.09.2026",
       "link": "https://teknoloji.marmara.edu.tr/notice/2026-2027-zorunlu-yabanci-dil-muafiyet-sinavi-duyurusu"
@@ -3319,11 +3324,6 @@
       "baslik": "2025-2026 Bahar Yarıyılı Ortak Dersler Ara Sınav Duyurusu",
       "tarih": "30.03.2026",
       "link": "https://teknoloji.marmara.edu.tr/notice/2025-2026-bahar-yariyili-ortak-dersler-ara-sinav-duyurusu"
-    },
-    {
-      "baslik": "“İnsanlığın Reçetesi: Gazze Dayanışması” Programı",
-      "tarih": "05.03.2026",
-      "link": "https://teknoloji.marmara.edu.tr/notice/insanligin-recetesi-gazze-dayanismasi-programi"
     }
   ],
   "tef.marmara.edu.tr": [
