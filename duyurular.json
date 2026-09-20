@@ -431,6 +431,11 @@
   ],
   "bursofisi.marmara.edu.tr": [
     {
+      "baslik": "2026-2027 Öğretim Yılı Yemek Bursu Duyurusu",
+      "tarih": "14.09.2026",
+      "link": "https://bursofisi.marmara.edu.tr/notice/2026-2027-ogretim-yili-yemek-bursu-duyurusu"
+    },
+    {
       "baslik": "Sabancı Vakfının Burs Duyurusu",
       "tarih": "10.09.2026",
       "link": "https://bursofisi.marmara.edu.tr/notice/sabanci-vakfinin-burs-duyurusu"
@@ -1807,11 +1812,6 @@
     }
   ],
   "www.marmara.edu.tr": [
-    {
-      "baslik": "2026 Dikey Geçiş Sınavı (DGS) İle Üniversitemize Kayıt İşlemleri",
-      "tarih": "10.09.2026",
-      "link": "https://oidb.marmara.edu.tr/notice/2026-dikey-gecis-sinavi-dgs-ile-universitemize-kayit-islemleri"
-    },
     {
       "baslik": "7592 SAYILI KANUN KAPSAMINDA ÜNİVERSİTEMİZE AF KAYIT İŞLEMLERİ",
       "tarih": "10.09.2026",
@@ -3994,9 +3994,14 @@
   ],
   "isletme.marmara.edu.tr": [
     {
-      "baslik": "2025-2026 Bahar Dönemi 44 Madde 1. Sınav Takvimi",
-      "tarih": "11.09.2026",
-      "link": "https://isletme.marmara.edu.tr/notice/2025-2026-bahar-donemi-44-madde-1-sinav-takvimi"
+      "baslik": "Yemek Bursu",
+      "tarih": "18.09.2026",
+      "link": "https://isletme.marmara.edu.tr/notice/yemek-bursu"
+    },
+    {
+      "baslik": "Sabancı Vakfı Bursu",
+      "tarih": "18.09.2026",
+      "link": "https://isletme.marmara.edu.tr/notice/sabanci-vakfi-bursu"
     },
     {
       "baslik": "2025-2026 Akademik Yılı Mezuniyet Törenimiz Gerçekleştirildi",
@@ -4062,11 +4067,6 @@
       "baslik": "Marmara Üniversitesi İktisadi İdari Bilimler Dergisi akademik makalelerinizi bekliyor",
       "tarih": "22.08.2023",
       "link": "https://isletme.marmara.edu.tr/notice/marmara-universitesi-iktisadi-idari-bilimler-dergisi-akademik-makalelerinizi-bekliyor"
-    },
-    {
-      "baslik": "Üniversitemiz Kalite Koordinatörlüğü'nden Fakültemize Ziyaret!",
-      "tarih": "11.10.2022",
-      "link": "https://isletme.marmara.edu.tr/notice/universitemiz-kalite-koordinatorlugunden-fakultemize-ziyaret"
     }
   ],
   "sustainability.marmara.edu.tr": [
@@ -4390,6 +4390,21 @@
   ],
   "oidb.marmara.edu.tr": [
     {
+      "baslik": "2026-2027 Öğretim Yılı Yemek Bursu Duyurusu",
+      "tarih": "17.09.2026",
+      "link": "https://oidb.marmara.edu.tr/notice/2026-2027-ogretim-yili-yemek-bursu-duyurusu"
+    },
+    {
+      "baslik": "2026-2027 Güz Yarıyılı Ders Kaydı",
+      "tarih": "16.09.2026",
+      "link": "https://oidb.marmara.edu.tr/notice/2026-2027-guz-yariyili-ders-kaydi"
+    },
+    {
+      "baslik": "İran’daki T.C. Vatandaşı Öğrenciler İçin Yatay Geçiş ve Özel Öğrencilik Başvuru İşlemleri",
+      "tarih": "15.09.2026",
+      "link": "https://oidb.marmara.edu.tr/notice/irandaki-tc-vatandasi-ogrenciler-icin-yatay-gecis-ve-ozel-ogrencilik-basvuru-islemleri"
+    },
+    {
       "baslik": "2026-2027 Eğitim-Öğretim Yılı Güz Dönemi Katkı Payı/Öğrenim Ücreti Ödemeleri Hakkında",
       "tarih": "14.09.2026",
       "link": "https://oidb.marmara.edu.tr/notice/2026-2027-egitim-ogretim-yili-guz-donemi-katki-payiogrenim-ucreti-odemeleri-hakkinda"
@@ -4448,21 +4463,6 @@
       "baslik": "2026-2027 Eğitim Öğretim Yılı Güz Dönemi Kurumlar Arası ve Kurum İçi Yatay Geçiş İşlemleri",
       "tarih": "22.07.2026",
       "link": "https://oidb.marmara.edu.tr/notice/2026-2027-egitim-ogretim-yili-guz-donemi-kurumlar-arasi-ve-kurum-ici-yatay-gecis-islemleri"
-    },
-    {
-      "baslik": "2025-2026 EĞİTİM ÖĞRETİM YILI YAZ OKULU İŞLEMLERİ",
-      "tarih": "17.06.2026",
-      "link": "https://oidb.marmara.edu.tr/notice/2025-2026-egitim-ogretim-yili-yaz-okulu-islemleri"
-    },
-    {
-      "baslik": "2025-2026 Bahar Yarıyılı Ders Kaydı",
-      "tarih": "03.02.2026",
-      "link": "https://oidb.marmara.edu.tr/notice/2025-2026-bahar-yariyili-ders-kaydi"
-    },
-    {
-      "baslik": "IMPORTANT NOTICE!!!  Attention International Students Submitting Residence Permit Documents!",
-      "tarih": "09.05.2025",
-      "link": "https://oidb.marmara.edu.tr/notice/important-notice-attention-international-students-submitting-residence-permit-documents"
     }
   ],
   "ogrencikonseyi.marmara.edu.tr": [
@@ -4561,6 +4561,16 @@
   ],
   "ikf.marmara.edu.tr": [
     {
+      "baslik": "Burs Duyurusu - İstanbul Yüksek Ticaret ve Marmara Üniversitesi İktisadi İdari Bilimler Fakültesi Mezunlar Derneği (İSTİVAK)",
+      "tarih": "16.09.2026",
+      "link": "https://ikf.marmara.edu.tr/notice/burs-duyurusu-istanbul-yuksek-ticaret-ve-marmara-universitesi-iktisadi-idari-bilimler-fakultesi-mezunlar-dernegi-istivak"
+    },
+    {
+      "baslik": "Bölümlerimiz Oryantasyon Programları",
+      "tarih": "16.09.2026",
+      "link": "https://ikf.marmara.edu.tr/notice/bolumlerimiz-oryantasyon-programlari"
+    },
+    {
       "baslik": "30 Ağustos Zafer Bayramı Kutlaması",
       "tarih": "30.08.2026",
       "link": "https://ikf.marmara.edu.tr/notice/30-agustos-zafer-bayrami-kutlamasi"
@@ -4624,16 +4634,6 @@
       "baslik": "KUTLAMA / Fakülte Futbol Takımımız",
       "tarih": "20.05.2026",
       "link": "https://ikf.marmara.edu.tr/notice/kutlama-fakulte-futbol-takimimiz"
-    },
-    {
-      "baslik": "Çalışma Arkadaşımızın Yayımlanan Eserleri Hakkında",
-      "tarih": "12.05.2026",
-      "link": "https://ikf.marmara.edu.tr/notice/calisma-arkadasimizin-yayimlanan-eserleri-hakkinda"
-    },
-    {
-      "baslik": "Uluslararası İlişkiler ve Akademik İşbirliği Ofis Koordinatöründen Fakültemiz Ziyareti",
-      "tarih": "06.05.2026",
-      "link": "https://ikf.marmara.edu.tr/notice/uluslararasi-iliskiler-ve-akademik-isbirligi-ofis-koordinatorunden-fakultemiz-ziyareti"
     }
   ],
   "imidb.marmara.edu.tr": [
