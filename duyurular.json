@@ -446,11 +446,6 @@
       "link": "https://bursofisi.marmara.edu.tr/notice/sabanci-vakfinin-burs-duyurusu"
     },
     {
-      "baslik": "İstanbul Aile Vakfı (İSAVAK) nın Yüksek Lisans ve Doktora Öğrencilerini Destekleme Bursu Başvuruları Başlamıştır.",
-      "tarih": "09.09.2026",
-      "link": "https://bursofisi.marmara.edu.tr/notice/istanbul-aile-vakfi-isavak-nin-yuksek-lisans-ve-doktora-ogrencilerini-destekleme-bursu-basvurulari-baslamistir"
-    },
-    {
       "baslik": "2026-2027 Öğretim Yılı “TEV Üniversite Eğitim Burs Başvuru Duyurusu",
       "tarih": "09.09.2026",
       "link": "https://bursofisi.marmara.edu.tr/notice/2026-2027-ogretim-yili-tev-universite-egitim-burs-basvuru-duyurusu"
@@ -1111,11 +1106,6 @@
       "link": "https://gse.marmara.edu.tr/notice/aa-arastirma-burslari"
     },
     {
-      "baslik": "İstanbul Aile Vakfı (İSAVAK) Burs Desteği",
-      "tarih": "10.09.2026",
-      "link": "https://gse.marmara.edu.tr/notice/istanbul-aile-vakfi-isavak-burs-destegi"
-    },
-    {
       "baslik": "Avrupa Koleji Yüksek Lisans Burs Programı Tanıtım Etkinliği",
       "tarih": "27.10.2025",
       "link": "https://gse.marmara.edu.tr/notice/avrupa-koleji-yuksek-lisans-burs-programi-tanitim-etkinligi"
@@ -1476,6 +1466,16 @@
   ],
   "kariyermerkezi.marmara.edu.tr": [
     {
+      "baslik": "Başlangıç Noktası Akademi 2027",
+      "tarih": "28.09.2026",
+      "link": "https://kariyermerkezi.marmara.edu.tr/notice/baslangic-noktasi-akademi-2027"
+    },
+    {
+      "baslik": "Polipedia - Uzun Dönem Stajyer İlanı",
+      "tarih": "28.09.2026",
+      "link": "https://kariyermerkezi.marmara.edu.tr/notice/polipedia-uzun-donem-stajyer-ilani"
+    },
+    {
       "baslik": "Umudum Eğitim Burs Programı",
       "tarih": "24.09.2026",
       "link": "https://kariyermerkezi.marmara.edu.tr/notice/umudum-egitim-burs-programi"
@@ -1539,16 +1539,6 @@
       "baslik": "Pazarlama Ajansları - SEO Intern",
       "tarih": "21.09.2026",
       "link": "https://kariyermerkezi.marmara.edu.tr/notice/pazarlama-ajanslari-seo-intern"
-    },
-    {
-      "baslik": "FinVision: Turning Insights to Impact",
-      "tarih": "21.09.2026",
-      "link": "https://kariyermerkezi.marmara.edu.tr/notice/finvision-turning-insights-to-impact"
-    },
-    {
-      "baslik": "Garanti BBVA Genç Kampüs Elçisi",
-      "tarih": "21.09.2026",
-      "link": "https://kariyermerkezi.marmara.edu.tr/notice/garanti-bbva-genc-kampus-elcisi"
     }
   ],
   "kalite.marmara.edu.tr": [
@@ -3276,11 +3266,6 @@
       "link": "https://teknoloji.marmara.edu.tr/notice/marmara-universitesi-teknoloji-fakultesi-oryantasyon-toplantilari"
     },
     {
-      "baslik": "Özel Gereksinimli Öğrencilerimizin Dikkatine: Uyarlama Başvuruları (21–27 Eylül 2026)",
-      "tarih": "21.09.2026",
-      "link": "https://teknoloji.marmara.edu.tr/notice/ozel-gereksinimli-ogrencilerimizin-dikkatine-uyarlama-basvurulari-21-27-eylul-2026"
-    },
-    {
       "baslik": "2026-2027 Eğitim-Öğretim Yılı Güz Yarıyılı Marmara Üniversitesi Teknoloji Fakültesi Sektör Kampüste İş Birliği Protokolü Kapsamında Açılan Dersler Hakkında Duyuru",
       "tarih": "18.09.2026",
       "link": "https://teknoloji.marmara.edu.tr/notice/2026-2027-egitim-ogretim-yili-guz-yariyili-marmara-universitesi-teknoloji-fakultesi-sektor-kampuste-is-birligi-protokolu-kapsaminda-acilan-dersler-hakkinda-duyuru"
@@ -3344,6 +3329,11 @@
       "baslik": "AMC 2026 Eklemeli İmalat Konferansı Fakültemizin Önemli Katkısı İle Düzenlendi",
       "tarih": "28.04.2026",
       "link": "https://teknoloji.marmara.edu.tr/notice/amc-2026-eklemeli-imalat-konferansi-fakultemizin-onemli-katkisi-ile-duzenlendi"
+    },
+    {
+      "baslik": "2025-2026 Bahar Dönemi Ara Sınav Mazeret Sınavı Başvuru Sonuçları",
+      "tarih": "23.04.2026",
+      "link": "https://teknoloji.marmara.edu.tr/notice/2025-2026-bahar-donemi-ara-sinav-mazeret-sinavi-basvuru-sonuclari"
     }
   ],
   "tef.marmara.edu.tr": [
