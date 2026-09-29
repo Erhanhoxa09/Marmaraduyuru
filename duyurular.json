@@ -369,9 +369,9 @@
       "link": "https://avrupa.marmara.edu.tr/notice/2026-2027-basvuru-takvimi"
     },
     {
-      "baslik": "2025-2026 Yarıyılı Bahar Dönemi Ders Programları",
+      "baslik": "2026-2027 Güz Yarıyılı Ders Programları",
       "tarih": "16.02.2026",
-      "link": "https://avrupa.marmara.edu.tr/notice/2025-2026-yariyili-bahar-donemi-ders-programlari"
+      "link": "https://avrupa.marmara.edu.tr/notice/2026-2027-guz-yariyili-ders-programlari"
     },
     {
       "baslik": "2025 YLSY Burs Programı Tanıtım Afişi",
@@ -1466,6 +1466,21 @@
   ],
   "kariyermerkezi.marmara.edu.tr": [
     {
+      "baslik": "Akare Yurt Dışı Eğitim Fuarları",
+      "tarih": "29.09.2026",
+      "link": "https://kariyermerkezi.marmara.edu.tr/notice/akare-yurt-disi-egitim-fuarlari"
+    },
+    {
+      "baslik": "Garanti BBVA Genç Kampüs Elçileri Programı",
+      "tarih": "29.09.2026",
+      "link": "https://kariyermerkezi.marmara.edu.tr/notice/garanti-bbva-genc-kampus-elcileri-programi"
+    },
+    {
+      "baslik": "Gozy Digital - sosyal medya ve dijital içerik",
+      "tarih": "29.09.2026",
+      "link": "https://kariyermerkezi.marmara.edu.tr/notice/gozy-digital-sosyal-medya-ve-dijital-icerik"
+    },
+    {
       "baslik": "Başlangıç Noktası Akademi 2027",
       "tarih": "28.09.2026",
       "link": "https://kariyermerkezi.marmara.edu.tr/notice/baslangic-noktasi-akademi-2027"
@@ -1524,21 +1539,6 @@
       "baslik": "CANOVATE - Part Time Grafiker",
       "tarih": "21.09.2026",
       "link": "https://kariyermerkezi.marmara.edu.tr/notice/canovate-part-time-grafiker"
-    },
-    {
-      "baslik": "REV Burs Programı",
-      "tarih": "21.09.2026",
-      "link": "https://kariyermerkezi.marmara.edu.tr/notice/rev-burs-programi"
-    },
-    {
-      "baslik": "Net Zero AVM Eğitim Programı",
-      "tarih": "21.09.2026",
-      "link": "https://kariyermerkezi.marmara.edu.tr/notice/net-zero-avm-egitim-programi"
-    },
-    {
-      "baslik": "Pazarlama Ajansları - SEO Intern",
-      "tarih": "21.09.2026",
-      "link": "https://kariyermerkezi.marmara.edu.tr/notice/pazarlama-ajanslari-seo-intern"
     }
   ],
   "kalite.marmara.edu.tr": [
@@ -3823,6 +3823,11 @@
   ],
   "isg.marmara.edu.tr": [
     {
+      "baslik": "Marmara Üniversitesi Risk Değerlendirmesi Toplantısı Gerçekleştirildi.",
+      "tarih": "28.09.2026",
+      "link": "https://isg.marmara.edu.tr/notice/marmara-universitesi-risk-degerlendirmesi-toplantisi-gerceklestirildi"
+    },
+    {
       "baslik": "2026 Yılı İSG Süreçleri Değerlendirme Toplantısı Gerçekleştirildi.",
       "tarih": "09.02.2026",
       "link": "https://isg.marmara.edu.tr/notice/2026-yili-isg-surecleri-degerlendirme-toplantisi-gerceklestirildi"
@@ -4400,6 +4405,11 @@
   ],
   "oidb.marmara.edu.tr": [
     {
+      "baslik": "2026-Yükseköğretim Kurumları Sınavı (YKS) Ek Yerleştirme Sonucu Üniversitemize Kayıt İşlemleri",
+      "tarih": "29.09.2026",
+      "link": "https://oidb.marmara.edu.tr/notice/2026-yuksekogretim-kurumlari-sinavi-yks-ek-yerlestirme-sonucu-universitemize-kayit-islemleri"
+    },
+    {
       "baslik": "İkamet İzni Başvuru Belgelerinin Teslimi Hakkında / Residence Permit Application Document Submission",
       "tarih": "23.09.2026",
       "link": "https://oidb.marmara.edu.tr/notice/ikamet-izni-basvuru-belgelerinin-teslimi-hakkinda-residence-permit-application-document-submission"
@@ -4468,11 +4478,6 @@
       "baslik": "2026-2027 EĞİTİM ÖĞRETİM YILI GÜZ DÖNEMİ MERKEZİ YERLEŞTİRME YATAY GEÇİŞ (EK MADDE-1) İŞLEMLERİ",
       "tarih": "22.07.2026",
       "link": "https://oidb.marmara.edu.tr/notice/2026-2027-egitim-ogretim-yili-guz-donemi-merkezi-yerlestirme-yatay-gecis-ek-madde-1-islemleri"
-    },
-    {
-      "baslik": "2026-2027 Eğitim Öğretim Yılı Güz Dönemi Kurumlar Arası ve Kurum İçi Yatay Geçiş İşlemleri",
-      "tarih": "22.07.2026",
-      "link": "https://oidb.marmara.edu.tr/notice/2026-2027-egitim-ogretim-yili-guz-donemi-kurumlar-arasi-ve-kurum-ici-yatay-gecis-islemleri"
     }
   ],
   "ogrencikonseyi.marmara.edu.tr": [
