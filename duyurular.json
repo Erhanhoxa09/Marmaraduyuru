@@ -1813,6 +1813,11 @@
   ],
   "www.marmara.edu.tr": [
     {
+      "baslik": "Akademik İlan",
+      "tarih": "29.09.2026",
+      "link": "https://www.marmara.edu.tr/notice/akademik-ilan-35"
+    },
+    {
       "baslik": "7592 Sayılı Kanun Kapsamında Üniversitemize Af Yatay Geçiş İşlemleri",
       "tarih": "24.09.2026",
       "link": "https://oidb.marmara.edu.tr/notice/7592-sayili-kanun-kapsaminda-universitemize-af-yatay-gecis-islemleri"
@@ -1881,11 +1886,6 @@
       "baslik": "2025 Yılı Kurum İç Değerlendirme Raporu",
       "tarih": "17.04.2026",
       "link": "https://www.marmara.edu.tr/dosya/www/rapor/2025%20yili%20KIDR.pdf?_t=1776403698"
-    },
-    {
-      "baslik": "M.Ü. 2025 Yılı İdare Faaliyet Raporu",
-      "tarih": "27.02.2026",
-      "link": "https://sgdb.marmara.edu.tr/dosya/sgdb/raporlar/faaliyetraporlari/M.%C3%9C.%202025%20Y%C4%B1l%C4%B1%20%C4%B0dare%20Faaliyet%20Raporu.pdf"
     }
   ],
   "makam.marmara.edu.tr": [
@@ -4475,9 +4475,9 @@
       "link": "https://oidb.marmara.edu.tr/notice/2026-2027-egitim-ogretim-yili-guz-yariyili-lisansustu-kayit-islemleri"
     },
     {
-      "baslik": "2026-2027 EĞİTİM ÖĞRETİM YILI GÜZ DÖNEMİ MERKEZİ YERLEŞTİRME YATAY GEÇİŞ (EK MADDE-1) İŞLEMLERİ",
-      "tarih": "22.07.2026",
-      "link": "https://oidb.marmara.edu.tr/notice/2026-2027-egitim-ogretim-yili-guz-donemi-merkezi-yerlestirme-yatay-gecis-ek-madde-1-islemleri"
+      "baslik": "2025-2026 Bahar Yarıyılı Ders Kaydı",
+      "tarih": "03.02.2026",
+      "link": "https://oidb.marmara.edu.tr/notice/2025-2026-bahar-yariyili-ders-kaydi"
     }
   ],
   "ogrencikonseyi.marmara.edu.tr": [
