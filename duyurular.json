@@ -431,6 +431,11 @@
   ],
   "bursofisi.marmara.edu.tr": [
     {
+      "baslik": "İstanbul Ticaret Odasının Burs Başvuruları Başlamıştır.",
+      "tarih": "01.10.2026",
+      "link": "https://bursofisi.marmara.edu.tr/notice/istanbul-ticaret-odasinin-burs-basvurulari-baslamistir"
+    },
+    {
       "baslik": "2027-2028 Akademik Yılı Jean Monnet Burs Programı Duyurusu",
       "tarih": "24.09.2026",
       "link": "https://bursofisi.marmara.edu.tr/notice/2027-2028-akademik-yili-jean-monnet-burs-programi-duyurusu"
@@ -459,11 +464,6 @@
       "baslik": "Anadolu Ajansı Araştırma Bursu Başvuruları  Başlamıştır.",
       "tarih": "13.08.2026",
       "link": "https://bursofisi.marmara.edu.tr/notice/anadolu-ajansi-arastirma-bursu-basvurulari-baslamistir"
-    },
-    {
-      "baslik": "Maria Leptin – EMBO Bilim Gazeteciliği Burslarına başvurular başlamıştır.",
-      "tarih": "13.08.2026",
-      "link": "https://bursofisi.marmara.edu.tr/notice/maria-leptin-embo-bilim-gazeteciligi-burslarina-basvurular-baslamistir"
     }
   ],
   "bidb.marmara.edu.tr": [
@@ -1838,24 +1838,9 @@
       "link": "https://oidb.marmara.edu.tr/notice/7592-sayili-kanun-kapsaminda-universitemize-af-kayit-islemleri"
     },
     {
-      "baslik": "TUSAŞ - HANGAR BİGG Tanıtım Duyurusu",
-      "tarih": "07.09.2026",
-      "link": "https://www.marmara.edu.tr/notice/tusas-hangar-bigg-tanitim-duyurusu"
-    },
-    {
       "baslik": "İhracat Akademisi DYS-DİR Çevrim İçi Eğitim Programları",
       "tarih": "01.09.2026",
       "link": "https://www.marmara.edu.tr/notice/ihracat-akademisi-dys-dir-cevrim-ici-egitim-programlari"
-    },
-    {
-      "baslik": "Türkiye Gazeteciler Cemiyeti Sedat Simavi Ödülleri'ne Aday Gösterme ve Ödül Yönetmeliğimizin Yayınlanması Hk.",
-      "tarih": "19.08.2026",
-      "link": "https://www.marmara.edu.tr/notice/turkiye-gazeteciler-cemiyeti-sedat-simavi-odullerine-aday-gosterme-ve-odul-yonetmeligimizin-yayinlanmasi-hk"
-    },
-    {
-      "baslik": "2026-YKS Sonucu Üniversitemize Kayıt İşlemleri",
-      "tarih": "18.08.2026",
-      "link": "https://oidb.marmara.edu.tr/notice/2026-yks-sonucu-universitemize-kayit-islemleri"
     },
     {
       "baslik": "7592 SAYILI KANUN KAPSAMINDA ÜNİVERSİTEMİZE AF BAŞVURUSU YAPACAK ADAYLARIN DİKKATİNE",
@@ -1863,29 +1848,24 @@
       "link": "https://oidb.marmara.edu.tr/notice/7592-sayili-kanun-kapsaminda-universitemize-af-basvurusu-yapacak-adaylarin-dikkatine"
     },
     {
-      "baslik": "2026-2027 Eğitim-Öğretim Yılı Güz Yarıyılı Lisansüstü Kayıt İşlemleri",
-      "tarih": "24.07.2026",
-      "link": "https://oidb.marmara.edu.tr/notice/2026-2027-egitim-ogretim-yili-guz-yariyili-lisansustu-kayit-islemleri"
-    },
-    {
-      "baslik": "2026-2027 Eğitim Öğretim Yılı Güz Dönemi Kurumlar Arası ve Kurum İçi Yatay Geçiş İşlemleri",
-      "tarih": "23.07.2026",
-      "link": "https://oidb.marmara.edu.tr/notice/2026-2027-egitim-ogretim-yili-guz-donemi-kurumlar-arasi-ve-kurum-ici-yatay-gecis-islemleri"
-    },
-    {
-      "baslik": "2026-2027 EĞİTİM ÖĞRETİM YILI GÜZ DÖNEMİ MERKEZİ YERLEŞTİRME YATAY GEÇİŞ (EK MADDE-1) İŞLEMLERİ",
-      "tarih": "23.07.2026",
-      "link": "https://oidb.marmara.edu.tr/notice/2026-2027-egitim-ogretim-yili-guz-donemi-merkezi-yerlestirme-yatay-gecis-ek-madde-1-islemleri"
-    },
-    {
-      "baslik": "5'inci Ulaşan ve Erişen Türkiye 2053 Üniversiteler Arası Ar-Ge Fikir Yarışması",
-      "tarih": "22.07.2026",
-      "link": "https://www.marmara.edu.tr/notice/5inci-ulasan-ve-erisen-turkiye-2053-universiteler-arasi-ar-ge-fikir-yarismasi"
-    },
-    {
       "baslik": "2025 Yılı Kurum İç Değerlendirme Raporu",
       "tarih": "17.04.2026",
       "link": "https://www.marmara.edu.tr/dosya/www/rapor/2025%20yili%20KIDR.pdf?_t=1776403698"
+    },
+    {
+      "baslik": "M.Ü. 2025 Yılı İdare Faaliyet Raporu",
+      "tarih": "27.02.2026",
+      "link": "https://sgdb.marmara.edu.tr/dosya/sgdb/raporlar/faaliyetraporlari/M.%C3%9C.%202025%20Y%C4%B1l%C4%B1%20%C4%B0dare%20Faaliyet%20Raporu.pdf"
+    },
+    {
+      "baslik": "Uluslararası  Uzay  Kongresi  (IAC  2026)",
+      "tarih": "18.11.2025",
+      "link": "https://www.marmara.edu.tr/notice/uluslararasi-uzay-kongresi-iac-2026"
+    },
+    {
+      "baslik": "Mentor Marmara 2025-2026 Başlıyor",
+      "tarih": "13.10.2025",
+      "link": "https://www.marmara.edu.tr/notice/mentor-marmara-2025-2026-basliyor"
     }
   ],
   "makam.marmara.edu.tr": [
@@ -4470,14 +4450,14 @@
       "link": "https://oidb.marmara.edu.tr/notice/7592-sayili-kanun-kapsaminda-universitemize-af-basvurusu-yapacak-adaylarin-dikkatine"
     },
     {
-      "baslik": "2026-2027 Eğitim-Öğretim Yılı Güz Yarıyılı Lisansüstü Kayıt İşlemleri",
-      "tarih": "24.07.2026",
-      "link": "https://oidb.marmara.edu.tr/notice/2026-2027-egitim-ogretim-yili-guz-yariyili-lisansustu-kayit-islemleri"
-    },
-    {
       "baslik": "2025-2026 Bahar Yarıyılı Ders Kaydı",
       "tarih": "03.02.2026",
       "link": "https://oidb.marmara.edu.tr/notice/2025-2026-bahar-yariyili-ders-kaydi"
+    },
+    {
+      "baslik": "IMPORTANT NOTICE!!!  Attention International Students Submitting Residence Permit Documents!",
+      "tarih": "09.05.2025",
+      "link": "https://oidb.marmara.edu.tr/notice/important-notice-attention-international-students-submitting-residence-permit-documents"
     }
   ],
   "ogrencikonseyi.marmara.edu.tr": [
