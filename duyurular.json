@@ -1118,6 +1118,11 @@
   ],
   "gsf.marmara.edu.tr": [
     {
+      "baslik": "2026-2027 Zorunlu Yabancı Dil Muafiyet Sınavı",
+      "tarih": "05.10.2026",
+      "link": "https://gsf.marmara.edu.tr/notice/2026-2027-zorunlu-yabanci-dil-muafiyet-sinavi"
+    },
+    {
       "baslik": "2026-2027 Özel Yetenek Sınavları Yedek Adaylar ve Kontenjan Listeleri",
       "tarih": "23.09.2026",
       "link": "https://gsf.marmara.edu.tr/notice/2026-2027-ozel-yetenek-sinavlari-yedek-adaylar-ve-kontenjan-listeleri"
@@ -1846,11 +1851,6 @@
       "baslik": "7592 SAYILI KANUN KAPSAMINDA ÜNİVERSİTEMİZE AF KAYIT İŞLEMLERİ",
       "tarih": "10.09.2026",
       "link": "https://oidb.marmara.edu.tr/notice/7592-sayili-kanun-kapsaminda-universitemize-af-kayit-islemleri"
-    },
-    {
-      "baslik": "İhracat Akademisi DYS-DİR Çevrim İçi Eğitim Programları",
-      "tarih": "01.09.2026",
-      "link": "https://www.marmara.edu.tr/notice/ihracat-akademisi-dys-dir-cevrim-ici-egitim-programlari"
     },
     {
       "baslik": "7592 SAYILI KANUN KAPSAMINDA ÜNİVERSİTEMİZE AF BAŞVURUSU YAPACAK ADAYLARIN DİKKATİNE",
@@ -2711,6 +2711,11 @@
     }
   ],
   "sks.marmara.edu.tr": [
+    {
+      "baslik": "Ücretsiz Öğrenci Kursları Ön Başvuruları Başlıyor - Göztepe Yerleşkesi",
+      "tarih": "05.10.2026",
+      "link": "https://sks.marmara.edu.tr/notice/ucretsiz-ogrenci-kurslari-on-basvurulari-basliyor-goztepe-yerleskesi"
+    },
     {
       "baslik": "Fitness Salonları Ön Kayıt Başvuruları Başlıyor (5 - 7 Ekim 2026)",
       "tarih": "02.10.2026",
@@ -4566,6 +4571,16 @@
   ],
   "ikf.marmara.edu.tr": [
     {
+      "baslik": "2026-2027 Dönemi AB Bursları Duyurusu",
+      "tarih": "05.10.2026",
+      "link": "https://ikf.marmara.edu.tr/notice/2026-2027-donemi-ab-burslari-duyurusu"
+    },
+    {
+      "baslik": "İTO Burs Duyurusu",
+      "tarih": "05.10.2026",
+      "link": "https://ikf.marmara.edu.tr/notice/ito-burs-duyurusu"
+    },
+    {
       "baslik": "Sabancı Vakfı Burs Duyurusu",
       "tarih": "22.09.2026",
       "link": "https://ikf.marmara.edu.tr/notice/sabanci-vakfi-burs-duyurusu-1"
@@ -4629,16 +4644,6 @@
       "baslik": "BİLGİLENDİRME / Mezuniyet Töreni ve Kep-Cübbe Dağıtımı",
       "tarih": "17.06.2026",
       "link": "https://ikf.marmara.edu.tr/notice/bilgilendirme-mezuniyet-toreni-ve-kep-cubbe-dagitimi"
-    },
-    {
-      "baslik": "QR Kod Uygulaması / İstek, Şikayet ve Talepleriniz için",
-      "tarih": "17.06.2026",
-      "link": "https://ikf.marmara.edu.tr/notice/qr-kod-uygulamasi-istek-sikayet-ve-talepleriniz-icin"
-    },
-    {
-      "baslik": "VEFAT / Prof.Dr. Aysu İnsel",
-      "tarih": "17.06.2026",
-      "link": "https://ikf.marmara.edu.tr/notice/vefat-profdr-aysu-insel"
     }
   ],
   "imidb.marmara.edu.tr": [
