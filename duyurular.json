@@ -276,6 +276,11 @@
   ],
   "bapko.marmara.edu.tr": [
     {
+      "baslik": "BAPSİS Kullanımına Yönelik Bilgilendirme Eğitimi Gerçekleştirildi",
+      "tarih": "14.10.2026",
+      "link": "https://bapko.marmara.edu.tr/notice/bapsis-kullanimina-yonelik-bilgilendirme-egitimi-gerceklestirildi"
+    },
+    {
       "baslik": "2026 YILI BAP PROJELERİ BAŞVURU LİMİTLERİ",
       "tarih": "13.01.2026",
       "link": "https://bapko.marmara.edu.tr/notice/2026-yili-bap-projeleri-basvuru-limitleri"
@@ -1461,6 +1466,16 @@
   ],
   "kariyermerkezi.marmara.edu.tr": [
     {
+      "baslik": "İş Hayatına Hazırlık Zirvesi",
+      "tarih": "14.10.2026",
+      "link": "https://kariyermerkezi.marmara.edu.tr/notice/is-hayatina-hazirlik-zirvesi"
+    },
+    {
+      "baslik": "Kariyer Planlama Platformu Broşürü",
+      "tarih": "14.10.2026",
+      "link": "https://kariyermerkezi.marmara.edu.tr/notice/kariyer-planlama-platformu-brosuru"
+    },
+    {
       "baslik": "Borusan Teknoloji Okulu",
       "tarih": "13.10.2026",
       "link": "https://kariyermerkezi.marmara.edu.tr/notice/borusan-teknoloji-okulu-1"
@@ -1524,16 +1539,6 @@
       "baslik": "2026 yılı Meslek Personeli",
       "tarih": "02.10.2026",
       "link": "https://kariyermerkezi.marmara.edu.tr/notice/2026-yili-meslek-personeli"
-    },
-    {
-      "baslik": "İyi Gelecek Staj Programı",
-      "tarih": "02.10.2026",
-      "link": "https://kariyermerkezi.marmara.edu.tr/notice/iyi-gelecek-staj-programi"
-    },
-    {
-      "baslik": "Akare Yurt Dışı Eğitim Fuarları",
-      "tarih": "29.09.2026",
-      "link": "https://kariyermerkezi.marmara.edu.tr/notice/akare-yurt-disi-egitim-fuarlari"
     }
   ],
   "kalite.marmara.edu.tr": [
@@ -4415,11 +4420,6 @@
       "link": "https://oidb.marmara.edu.tr/notice/7592-sayili-kanun-kapsaminda-universitemize-af-kayit-islemleri"
     },
     {
-      "baslik": "2026-2027 Eğitim Öğretim Yılı Güz Dönemi Kurumlar Arası ve Kurum İçi Yatay Geçiş Yedek  İşlemleri",
-      "tarih": "07.09.2026",
-      "link": "https://oidb.marmara.edu.tr/notice/2026-2027-egitim-ogretim-yili-guz-donemi-kurumlar-arasi-ve-kurum-ici-yatay-gecis-yedek-islemleri"
-    },
-    {
       "baslik": "2026-2027 EĞİTİM ÖĞRETİM YILI GÜZ DÖNEMİ MERKEZİ YERLEŞTİRME YATAY GEÇİŞ (EK MADDE-1) SONUÇ İLANI VE KAYIT İŞLEMLERİ",
       "tarih": "04.09.2026",
       "link": "https://oidb.marmara.edu.tr/notice/2026-2027-egitim-ogretim-yili-guz-donemi-merkezi-yerlestirme-yatay-gecis-ek-madde-1-sonuc-ilani-ve-kayit-islemleri"
@@ -4428,16 +4428,6 @@
       "baslik": "2026-2027 Eğitim Öğretim Yılı Türkiye Burslusu (YTB) Kayıtları",
       "tarih": "03.09.2026",
       "link": "https://oidb.marmara.edu.tr/notice/2026-2027-egitim-ogretim-yili-turkiye-burslusu-ytb-kayitlari"
-    },
-    {
-      "baslik": "2026-2027 Eğitim Öğretim Yılı Güz Dönemi Kurumlar Arası ve Kurum İçi Yatay Geçiş Sonuç İlanı ve Kayıt İşlemleri",
-      "tarih": "31.08.2026",
-      "link": "https://oidb.marmara.edu.tr/notice/2026-2027-egitim-ogretim-yili-guz-donemi-kurumlar-arasi-ve-kurum-ici-yatay-gecis-sonuc-ilani-ve-kayit-islemleri"
-    },
-    {
-      "baslik": "2026 Zorunlu Yabancı Dil Hazırlıkta 2. Yıl Sonu Başarısız Olanların Türkçe Programlara Geçiş İşlemleri (Marmara Üniversitesi Kurum İçi Yerleştirme)",
-      "tarih": "11.08.2026",
-      "link": "https://oidb.marmara.edu.tr/notice/2026-zorunlu-yabanci-dil-hazirlikta-2-yil-sonu-basarisiz-olanlarin-turkce-programlara-gecis-islemleri-marmara-universitesi-kurum-ici-yerlestirme"
     },
     {
       "baslik": "7592 SAYILI KANUN KAPSAMINDA ÜNİVERSİTEMİZE AF BAŞVURUSU YAPACAK ADAYLARIN DİKKATİNE",
@@ -4453,6 +4443,21 @@
       "baslik": "IMPORTANT NOTICE!!!  Attention International Students Submitting Residence Permit Documents!",
       "tarih": "09.05.2025",
       "link": "https://oidb.marmara.edu.tr/notice/important-notice-attention-international-students-submitting-residence-permit-documents"
+    },
+    {
+      "baslik": "Kart Basım ve Teslim Süreci",
+      "tarih": "16.09.2024",
+      "link": "https://kampuskart.marmara.edu.tr/notice/kart-basim-ve-teslim-sureci"
+    },
+    {
+      "baslik": "Bilgi Yönetim Sistemleri (BYS)'ye Yurtdışından Erişim",
+      "tarih": "02.02.2024",
+      "link": "https://bidb.marmara.edu.tr/notice/bilgi-yonetim-sistemleri-bysye-yurtdisindan-erisim"
+    },
+    {
+      "baslik": "CİMER 'Yönetime Katıl Uygulaması'",
+      "tarih": "26.11.2021",
+      "link": "https://oidb.marmara.edu.tr/notice/cimer-yonetime-katil-uygulamasi"
     }
   ],
   "ogrencikonseyi.marmara.edu.tr": [
