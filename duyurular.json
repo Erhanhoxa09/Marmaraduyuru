@@ -1471,6 +1471,11 @@
   ],
   "kariyermerkezi.marmara.edu.tr": [
     {
+      "baslik": "Beymen Etkinlik",
+      "tarih": "19.10.2026",
+      "link": "https://kariyermerkezi.marmara.edu.tr/notice/beymen-etkinlik"
+    },
+    {
       "baslik": "İş Hayatına Hazırlık Zirvesi",
       "tarih": "14.10.2026",
       "link": "https://kariyermerkezi.marmara.edu.tr/notice/is-hayatina-hazirlik-zirvesi"
@@ -1539,11 +1544,6 @@
       "baslik": "Konto Sayım Part Time İş",
       "tarih": "02.10.2026",
       "link": "https://kariyermerkezi.marmara.edu.tr/notice/konto-sayim-part-time-is"
-    },
-    {
-      "baslik": "2026 yılı Meslek Personeli",
-      "tarih": "02.10.2026",
-      "link": "https://kariyermerkezi.marmara.edu.tr/notice/2026-yili-meslek-personeli"
     }
   ],
   "kalite.marmara.edu.tr": [
@@ -4405,11 +4405,6 @@
       "link": "https://oidb.marmara.edu.tr/notice/ikamet-izni-basvuru-belgelerinin-teslimi-hakkinda-residence-permit-application-document-submission"
     },
     {
-      "baslik": "2026-2027 Güz Yarıyılı Ders Kaydı",
-      "tarih": "16.09.2026",
-      "link": "https://oidb.marmara.edu.tr/notice/2026-2027-guz-yariyili-ders-kaydi"
-    },
-    {
       "baslik": "2026-2027 Eğitim-Öğretim Yılı Güz Dönemi Katkı Payı/Öğrenim Ücreti Ödemeleri Hakkında",
       "tarih": "14.09.2026",
       "link": "https://oidb.marmara.edu.tr/notice/2026-2027-egitim-ogretim-yili-guz-donemi-katki-payiogrenim-ucreti-odemeleri-hakkinda"
@@ -4463,6 +4458,11 @@
       "baslik": "İndirimli (Öğrenci) İstanbulkart Başvuruları Hk.",
       "tarih": "14.09.2021",
       "link": "https://oidb.marmara.edu.tr/notice/indirimli-ogrenci-istanbulkart-basvurulari-hk"
+    },
+    {
+      "baslik": "MARMARA ÜNİVERSİTESİ 07.10.2020 TARİHLİ SENATOSUNUN FAALİYET İZNİ KALDIRILAN İSTANBUL ŞEHİR ÜNİVERSİTESİNDEN İNTİKAL EDEN ÖĞRENCİLERLE İLGİLİ KARARLARI",
+      "tarih": "21.10.2020",
+      "link": "https://oidb.marmara.edu.tr/notice/marmara-universitesi-07102020-tarihli-senatosunun-faaliyet-izni-kaldirilan-istanbul-sehir-universitesinden-intikal-eden-ogrencilerle-ilgili-kararlari"
     }
   ],
   "ogrencikonseyi.marmara.edu.tr": [
