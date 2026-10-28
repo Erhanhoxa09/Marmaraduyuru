@@ -468,6 +468,11 @@
   ],
   "bidb.marmara.edu.tr": [
     {
+      "baslik": "PHP ve Node.js Güvenlik Açıklarına İlişkin Bilgilendirme",
+      "tarih": "24.10.2026",
+      "link": "https://bidb.marmara.edu.tr/notice/php-ve-nodejs-guvenlik-aciklarina-iliskin-bilgilendirme"
+    },
+    {
       "baslik": "Kurumsal PDF Dönüşüm Aracı \"UlakPDF\" Üniversitemizde Kullanıma Sunuldu",
       "tarih": "11.08.2026",
       "link": "https://bidb.marmara.edu.tr/notice/kurumsal-pdf-donusum-araci-ulakpdf-universitemizde-kullanima-sunuldu"
@@ -536,11 +541,6 @@
       "baslik": "ISO/IEC 27001:2022 Bilgi Güvenliği Yönetim Sertifikası",
       "tarih": "12.12.2023",
       "link": "https://bidb.marmara.edu.tr/notice/isoiec-270012022-bilgi-guvenligi-yonetim-sertifikasi"
-    },
-    {
-      "baslik": "Engelsiz Bilişim 2023 Ödülleri Sahiplerini Buldu",
-      "tarih": "05.10.2023",
-      "link": "https://bidb.marmara.edu.tr/notice/engelsiz-bilisim-2023-odulleri-sahiplerini-buldu"
     }
   ],
   "dbb.marmara.edu.tr": [
@@ -1808,6 +1808,11 @@
   ],
   "www.marmara.edu.tr": [
     {
+      "baslik": "PHP ve Node.js Güvenlik Açıklarına İlişkin Bilgilendirme",
+      "tarih": "24.10.2026",
+      "link": "https://bidb.marmara.edu.tr/notice/php-ve-nodejs-guvenlik-aciklarina-iliskin-bilgilendirme"
+    },
+    {
       "baslik": "7592 Sayılı Kanun Kapsamında Üniversitemize Af Yatay Geçiş İşlemleri",
       "tarih": "24.09.2026",
       "link": "https://oidb.marmara.edu.tr/notice/7592-sayili-kanun-kapsaminda-universitemize-af-yatay-gecis-islemleri"
@@ -2682,14 +2687,9 @@
   ],
   "sks.marmara.edu.tr": [
     {
-      "baslik": "Ücretsiz Öğrenci Kursları Ön Başvuruları Başlıyor - Göztepe Yerleşkesi",
-      "tarih": "05.10.2026",
-      "link": "https://sks.marmara.edu.tr/notice/ucretsiz-ogrenci-kurslari-on-basvurulari-basliyor-goztepe-yerleskesi"
-    },
-    {
-      "baslik": "Fitness Salonları Ön Kayıt Başvuruları Başlıyor (5 - 7 Ekim 2026)",
-      "tarih": "02.10.2026",
-      "link": "https://sks.marmara.edu.tr/notice/fitness-salonlari-on-kayit-basvurulari-basliyor-5-7-ekim-2026"
+      "baslik": "İŞKUR Gençlik Programı Başvuruları Başladı",
+      "tarih": "28.10.2026",
+      "link": "https://sks.marmara.edu.tr/notice/iskur-genclik-programi-basvurulari-basladi-1"
     },
     {
       "baslik": "Avrupa'nın Zirvesinde Bir Marmara Fırtınası: Tiran’da Tarihi Şampiyonluk!",
