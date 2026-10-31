@@ -1803,6 +1803,11 @@
   ],
   "www.marmara.edu.tr": [
     {
+      "baslik": "Ulusal Staj Programı 2027 Başvuruları Başladı",
+      "tarih": "30.10.2026",
+      "link": "https://www.marmara.edu.tr/notice/ulusal-staj-programi-2027-basvurulari-basladi"
+    },
+    {
       "baslik": "PHP ve Node.js Güvenlik Açıklarına İlişkin Bilgilendirme",
       "tarih": "24.10.2026",
       "link": "https://bidb.marmara.edu.tr/notice/php-ve-nodejs-guvenlik-aciklarina-iliskin-bilgilendirme"
@@ -4395,11 +4400,6 @@
       "link": "https://oidb.marmara.edu.tr/notice/ikamet-izni-basvuru-belgelerinin-teslimi-hakkinda-residence-permit-application-document-submission"
     },
     {
-      "baslik": "2026-2027 Eğitim-Öğretim Yılı Güz Dönemi Katkı Payı/Öğrenim Ücreti Ödemeleri Hakkında",
-      "tarih": "14.09.2026",
-      "link": "https://oidb.marmara.edu.tr/notice/2026-2027-egitim-ogretim-yili-guz-donemi-katki-payiogrenim-ucreti-odemeleri-hakkinda"
-    },
-    {
       "baslik": "7592 SAYILI KANUN KAPSAMINDA ÜNİVERSİTEMİZE AF KAYIT İŞLEMLERİ",
       "tarih": "08.09.2026",
       "link": "https://oidb.marmara.edu.tr/notice/7592-sayili-kanun-kapsaminda-universitemize-af-kayit-islemleri"
@@ -4458,6 +4458,11 @@
       "baslik": "2020-Mühendislik Tamamlama Kayıt İşlemleri",
       "tarih": "16.10.2020",
       "link": "https://oidb.marmara.edu.tr/notice/2020-muhendislik-tamamlama-kayit-islemleri"
+    },
+    {
+      "baslik": "MARMARA ÜNİVERSİTESİ  LİSANSÜSTÜ MESLEKİ BİLGİ DEĞERLENDİRMESİ VE MÜLAKAT SINAVLARINA ÇEVRİMİÇİ KATILMASI UYGUN BULUNAN ADAYLARIN DİKKATİNE",
+      "tarih": "27.09.2020",
+      "link": "https://oidb.marmara.edu.tr/notice/marmara-universitesi-lisansustu-mesleki-bilgi-degerlendirmesi-ve-mulakat-sinavlarina-cevrimici-katilmasi-uygun-bulunan-adaylarin-dikkatine"
     }
   ],
   "ogrencikonseyi.marmara.edu.tr": [
