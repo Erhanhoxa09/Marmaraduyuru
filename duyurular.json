@@ -447,11 +447,6 @@
   "bursofisi.marmara.edu.tr": [],
   "bidb.marmara.edu.tr": [
     {
-      "baslik": "PHP ve Node.js Güvenlik Açıklarına İlişkin Bilgilendirme",
-      "tarih": "24.10.2026",
-      "link": "https://bidb.marmara.edu.tr/notice/php-ve-nodejs-guvenlik-aciklarina-iliskin-bilgilendirme"
-    },
-    {
       "baslik": "Kurumsal PDF Dönüşüm Aracı \"UlakPDF\" Üniversitemizde Kullanıma Sunuldu",
       "tarih": "11.08.2026",
       "link": "https://bidb.marmara.edu.tr/notice/kurumsal-pdf-donusum-araci-ulakpdf-universitemizde-kullanima-sunuldu"
@@ -520,6 +515,11 @@
       "baslik": "ISO/IEC 27001:2022 Bilgi Güvenliği Yönetim Sertifikası",
       "tarih": "12.12.2023",
       "link": "https://bidb.marmara.edu.tr/notice/isoiec-270012022-bilgi-guvenligi-yonetim-sertifikasi"
+    },
+    {
+      "baslik": "Engelsiz Bilişim 2023 Ödülleri Sahiplerini Buldu",
+      "tarih": "05.10.2023",
+      "link": "https://bidb.marmara.edu.tr/notice/engelsiz-bilisim-2023-odulleri-sahiplerini-buldu"
     }
   ],
   "dbb.marmara.edu.tr": [
@@ -1440,6 +1440,26 @@
   ],
   "kariyermerkezi.marmara.edu.tr": [
     {
+      "baslik": "Birbirini Geliştiren Kadınlar Programı",
+      "tarih": "24.11.2026",
+      "link": "https://kariyermerkezi.marmara.edu.tr/notice/birbirini-gelistiren-kadinlar-programi"
+    },
+    {
+      "baslik": "Women in Energy Days",
+      "tarih": "24.11.2026",
+      "link": "https://kariyermerkezi.marmara.edu.tr/notice/women-in-energy-days"
+    },
+    {
+      "baslik": "13. İnovasyon Yarışması Başvuru",
+      "tarih": "24.11.2026",
+      "link": "https://kariyermerkezi.marmara.edu.tr/notice/13-inovasyon-yarismasi-basvuru"
+    },
+    {
+      "baslik": "Hannover Fairs Turkey Uzun Dönem Staj İlanı",
+      "tarih": "24.11.2026",
+      "link": "https://kariyermerkezi.marmara.edu.tr/notice/hannover-fairs-turkey-uzun-donem-staj-ilani"
+    },
+    {
       "baslik": "YEO - Purchasing Specialist İlanı",
       "tarih": "19.11.2026",
       "link": "https://kariyermerkezi.marmara.edu.tr/notice/yeo-purchasing-specialist-ilani"
@@ -1493,26 +1513,6 @@
       "baslik": "Turkcell Yarının Teknoloji Liderleri - 3. Sezon Duyurusu",
       "tarih": "09.11.2026",
       "link": "https://kariyermerkezi.marmara.edu.tr/notice/turkcell-yarinin-teknoloji-liderleri-3-sezon-duyurusu"
-    },
-    {
-      "baslik": "İş İlanı | Turizm Satış ve Rezervasyon Sorumlusu",
-      "tarih": "09.11.2026",
-      "link": "https://kariyermerkezi.marmara.edu.tr/notice/is-ilani-turizm-satis-ve-rezervasyon-sorumlusu"
-    },
-    {
-      "baslik": "AIESEC FIRSATLARI",
-      "tarih": "09.11.2026",
-      "link": "https://kariyermerkezi.marmara.edu.tr/notice/aiesec-firsatlari"
-    },
-    {
-      "baslik": "UZUN DÖNEM İNSAN KAYNAKLARI STAJYERİ - Metasis Teknoloji",
-      "tarih": "09.11.2026",
-      "link": "https://kariyermerkezi.marmara.edu.tr/notice/uzun-donem-insan-kaynaklari-stajyeri-metasis-teknoloji"
-    },
-    {
-      "baslik": "Seyrüsefer Sistemleri Speed Bootcamp Seyrüsefer Başvuruları Devam Ediyor!",
-      "tarih": "05.11.2026",
-      "link": "https://kariyermerkezi.marmara.edu.tr/notice/seyrusefer-sistemleri-speed-bootcamp-seyrusefer-basvurulari-devam-ediyor"
     }
   ],
   "kalite.marmara.edu.tr": [
@@ -1786,6 +1786,11 @@
     }
   ],
   "www.marmara.edu.tr": [
+    {
+      "baslik": "Akademik İlan",
+      "tarih": "24.11.2026",
+      "link": "https://www.marmara.edu.tr/notice/akademik-ilan-36"
+    },
     {
       "baslik": "Erasmus+ Program Ülkeleri (Avrupa içi KA131) Personel Ders Verme ve Eğitim Alma Hareketlilikleri Başvuruları",
       "tarih": "12.11.2026",
@@ -2675,6 +2680,11 @@
     }
   ],
   "sks.marmara.edu.tr": [
+    {
+      "baslik": "İŞKUR Gençlik Programı Yedek Listeler Belirlendi",
+      "tarih": "24.11.2026",
+      "link": "https://sks.marmara.edu.tr/notice/iskur-genclik-programi-yedek-listeler-belirlendi"
+    },
     {
       "baslik": "Avrupa'nın Zirvesinde Bir Marmara Fırtınası: Tiran’da Tarihi Şampiyonluk!",
       "tarih": "14.09.2026",
